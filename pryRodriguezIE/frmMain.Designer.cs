@@ -33,14 +33,14 @@
             this.gestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroDeProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listadoReportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listadoReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.activosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuActivos = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.Fecha = new System.Windows.Forms.ToolStripStatusLabel();
-            this.temporizador = new System.Windows.Forms.Timer(this.components);
             this.Hora = new System.Windows.Forms.ToolStripStatusLabel();
+            this.temporizador = new System.Windows.Forms.Timer(this.components);
+            this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +49,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gestionToolStripMenuItem,
-            this.listadoReportesToolStripMenuItem});
+            this.listadoReportes});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(710, 24);
@@ -69,7 +69,7 @@
             this.proveedorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registroDeProveedoresToolStripMenuItem});
             this.proveedorToolStripMenuItem.Name = "proveedorToolStripMenuItem";
-            this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.proveedorToolStripMenuItem.Text = "Proveedor";
             // 
             // registroDeProveedoresToolStripMenuItem
@@ -78,27 +78,28 @@
             this.registroDeProveedoresToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.registroDeProveedoresToolStripMenuItem.Text = "Registro de Proveedores";
             // 
-            // listadoReportesToolStripMenuItem
+            // listadoReportes
             // 
-            this.listadoReportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listadoReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.proveedoresToolStripMenuItem});
-            this.listadoReportesToolStripMenuItem.Name = "listadoReportesToolStripMenuItem";
-            this.listadoReportesToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
-            this.listadoReportesToolStripMenuItem.Text = "Listado/Reportes";
+            this.listadoReportes.Name = "listadoReportes";
+            this.listadoReportes.Size = new System.Drawing.Size(108, 20);
+            this.listadoReportes.Text = "Listado/Reportes";
             // 
             // proveedoresToolStripMenuItem
             // 
             this.proveedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.activosToolStripMenuItem});
+            this.menuActivos});
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.proveedoresToolStripMenuItem.Text = "Proveedores";
             // 
-            // activosToolStripMenuItem
+            // menuActivos
             // 
-            this.activosToolStripMenuItem.Name = "activosToolStripMenuItem";
-            this.activosToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.activosToolStripMenuItem.Text = "Activos";
+            this.menuActivos.Name = "menuActivos";
+            this.menuActivos.Size = new System.Drawing.Size(180, 22);
+            this.menuActivos.Text = "Activos";
+            this.menuActivos.Click += new System.EventHandler(this.activosToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
@@ -109,7 +110,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Hora,
-            this.Fecha});
+            this.lblUsuario});
             this.statusStrip1.Location = new System.Drawing.Point(0, 392);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -118,19 +119,6 @@
             this.statusStrip1.Text = "statusStrip1";
             this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
-            // Fecha
-            // 
-            this.Fecha.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Fecha.Name = "Fecha";
-            this.Fecha.Size = new System.Drawing.Size(38, 17);
-            this.Fecha.Text = "Fecha";
-            this.Fecha.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // temporizador
-            // 
-            this.temporizador.Enabled = true;
-            this.temporizador.Interval = 1000;
-            // 
             // Hora
             // 
             this.Hora.Name = "Hora";
@@ -138,10 +126,24 @@
             this.Hora.Text = "Hora";
             this.Hora.Click += new System.EventHandler(this.Hora_Click);
             // 
+            // temporizador
+            // 
+            this.temporizador.Enabled = true;
+            this.temporizador.Interval = 1000;
+            this.temporizador.Tick += new System.EventHandler(this.temporizador_Tick);
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(47, 17);
+            this.lblUsuario.Text = "Usuario";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::pryRodriguezIE.Properties.Resources.images;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(710, 414);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -163,15 +165,15 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem gestionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listadoReportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listadoReportes;
         private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem activosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuActivos;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem proveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroDeProveedoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripStatusLabel Fecha;
         private System.Windows.Forms.Timer temporizador;
         private System.Windows.Forms.ToolStripStatusLabel Hora;
+        private System.Windows.Forms.ToolStripStatusLabel lblUsuario;
     }
 }
 

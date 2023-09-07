@@ -30,8 +30,8 @@
         {
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblContraseña = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnInicioSesion = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -56,20 +56,21 @@
             this.lblContraseña.TabIndex = 1;
             this.lblContraseña.Text = "Contraseña";
             // 
-            // textBox1
+            // txtUsuario
             // 
-            this.textBox1.Location = new System.Drawing.Point(141, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtUsuario.Location = new System.Drawing.Point(141, 64);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(100, 20);
+            this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // txtContraseña
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(141, 116);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(133, 20);
-            this.textBox2.TabIndex = 3;
+            this.txtContraseña.Location = new System.Drawing.Point(141, 116);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.Size = new System.Drawing.Size(133, 20);
+            this.txtContraseña.TabIndex = 3;
+            this.txtContraseña.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
             // 
             // lblTitulo
             // 
@@ -90,8 +91,9 @@
             this.btnInicioSesion.Name = "btnInicioSesion";
             this.btnInicioSesion.Size = new System.Drawing.Size(134, 32);
             this.btnInicioSesion.TabIndex = 5;
-            this.btnInicioSesion.Text = "Iniciar Sesion";
+            this.btnInicioSesion.Text = "Iniciar Sesión";
             this.btnInicioSesion.UseVisualStyleBackColor = true;
+            this.btnInicioSesion.Click += new System.EventHandler(this.btnInicioSesion_Click);
             // 
             // frmInicioSesion
             // 
@@ -100,12 +102,13 @@
             this.ClientSize = new System.Drawing.Size(347, 241);
             this.Controls.Add(this.btnInicioSesion);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtContraseña);
+            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblContraseña);
             this.Controls.Add(this.lblUsuario);
             this.Name = "frmInicioSesion";
             this.Text = "frmInicioSesion";
+            this.Load += new System.EventHandler(this.frmInicioSesion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,8 +118,8 @@
 
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblContraseña;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnInicioSesion;
     }

@@ -23,7 +23,7 @@ namespace pryRodriguezIE
             if (contadorTiempo > 3000)
             {
                 this.Hide();
-                frmInicioSesion Inicio = new frmInicioSesion);
+                frmInicioSesion Inicio = new frmInicioSesion();
                 Inicio.Show();
                 temporizador.Enabled = false;
             }

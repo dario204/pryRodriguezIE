@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsAccesoBD.cs" />
+    <Compile Include="clsUsuario.cs" />
     <Compile Include="frmInicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +66,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPAS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPAS.Designer.cs">
+      <DependentUpon>frmPAS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmInicioSesion.resx">
@@ -74,6 +82,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPAS.resx">
+      <DependentUpon>frmPAS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
