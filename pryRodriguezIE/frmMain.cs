@@ -52,8 +52,14 @@ namespace pryRodriguezIE
         {
 
             StreamWriter sw = new StreamWriter("logGeneral", true);
-            sw.WriteLine(lblUsuario.Text + "-Fecha:" + DateTime.Now + "- Accede:" + );
+            sw.WriteLine(lblUsuario.Text + "-Fecha:" + DateTime.Now + "- Accede:");
             sw.Close();
+        }
+
+        private void registroDeProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPas pas = new frmPas();
+            pas.ShowDialog();
         }
     }
 }

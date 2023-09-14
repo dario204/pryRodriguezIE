@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="clsAccesoBD.cs" />
     <Compile Include="clsUsuario.cs" />
+    <Compile Include="frmCargaProveedorescs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCargaProveedorescs.Designer.cs">
+      <DependentUpon>frmCargaProveedorescs.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,14 +72,17 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPAS.cs">
+    <Compile Include="frmPas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPAS.Designer.cs">
-      <DependentUpon>frmPAS.cs</DependentUpon>
+    <Compile Include="frmPas.Designer.cs">
+      <DependentUpon>frmPas.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCargaProveedorescs.resx">
+      <DependentUpon>frmCargaProveedorescs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInicioSesion.resx">
       <DependentUpon>frmInicioSesion.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,8 +92,8 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPAS.resx">
-      <DependentUpon>frmPAS.cs</DependentUpon>
+    <EmbeddedResource Include="frmPas.resx">
+      <DependentUpon>frmPas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -29,18 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.gestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.proveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registroDeProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Gestion = new System.Windows.Forms.ToolStripMenuItem();
+            this.Proveedor = new System.Windows.Forms.ToolStripMenuItem();
+            this.RegistroProveedores = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoReportes = new System.Windows.Forms.ToolStripMenuItem();
-            this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Proveedores = new System.Windows.Forms.ToolStripMenuItem();
             this.menuActivos = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.Hora = new System.Windows.Forms.ToolStripStatusLabel();
-            this.temporizador = new System.Windows.Forms.Timer(this.components);
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.temporizador = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +49,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gestionToolStripMenuItem,
+            this.Gestion,
             this.listadoReportes});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -56,43 +57,44 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // gestionToolStripMenuItem
+            // Gestion
             // 
-            this.gestionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.proveedorToolStripMenuItem});
-            this.gestionToolStripMenuItem.Name = "gestionToolStripMenuItem";
-            this.gestionToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.gestionToolStripMenuItem.Text = "Gestion";
+            this.Gestion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Proveedor});
+            this.Gestion.Name = "Gestion";
+            this.Gestion.Size = new System.Drawing.Size(59, 20);
+            this.Gestion.Text = "Gestion";
             // 
-            // proveedorToolStripMenuItem
+            // Proveedor
             // 
-            this.proveedorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registroDeProveedoresToolStripMenuItem});
-            this.proveedorToolStripMenuItem.Name = "proveedorToolStripMenuItem";
-            this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.proveedorToolStripMenuItem.Text = "Proveedor";
+            this.Proveedor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.RegistroProveedores});
+            this.Proveedor.Name = "Proveedor";
+            this.Proveedor.Size = new System.Drawing.Size(180, 22);
+            this.Proveedor.Text = "Proveedor";
             // 
-            // registroDeProveedoresToolStripMenuItem
+            // RegistroProveedores
             // 
-            this.registroDeProveedoresToolStripMenuItem.Name = "registroDeProveedoresToolStripMenuItem";
-            this.registroDeProveedoresToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.registroDeProveedoresToolStripMenuItem.Text = "Registro de Proveedores";
+            this.RegistroProveedores.Name = "RegistroProveedores";
+            this.RegistroProveedores.Size = new System.Drawing.Size(201, 22);
+            this.RegistroProveedores.Text = "Registro de Proveedores";
+            this.RegistroProveedores.Click += new System.EventHandler(this.registroDeProveedoresToolStripMenuItem_Click);
             // 
             // listadoReportes
             // 
             this.listadoReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.proveedoresToolStripMenuItem});
+            this.Proveedores});
             this.listadoReportes.Name = "listadoReportes";
             this.listadoReportes.Size = new System.Drawing.Size(108, 20);
             this.listadoReportes.Text = "Listado/Reportes";
             // 
-            // proveedoresToolStripMenuItem
+            // Proveedores
             // 
-            this.proveedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Proveedores.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuActivos});
-            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.proveedoresToolStripMenuItem.Text = "Proveedores";
+            this.Proveedores.Name = "Proveedores";
+            this.Proveedores.Size = new System.Drawing.Size(180, 22);
+            this.Proveedores.Text = "Proveedores";
             // 
             // menuActivos
             // 
@@ -126,17 +128,17 @@
             this.Hora.Text = "Hora";
             this.Hora.Click += new System.EventHandler(this.Hora_Click);
             // 
-            // temporizador
-            // 
-            this.temporizador.Enabled = true;
-            this.temporizador.Interval = 1000;
-            this.temporizador.Tick += new System.EventHandler(this.temporizador_Tick);
-            // 
             // lblUsuario
             // 
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(47, 17);
             this.lblUsuario.Text = "Usuario";
+            // 
+            // temporizador
+            // 
+            this.temporizador.Enabled = true;
+            this.temporizador.Interval = 1000;
+            this.temporizador.Tick += new System.EventHandler(this.temporizador_Tick);
             // 
             // frmMain
             // 
@@ -147,8 +149,10 @@
             this.ClientSize = new System.Drawing.Size(710, 414);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistemas de Gestion de Ventas de Servicios de Seguro";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -164,13 +168,13 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem gestionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Gestion;
         private System.Windows.Forms.ToolStripMenuItem listadoReportes;
-        private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Proveedores;
         private System.Windows.Forms.ToolStripMenuItem menuActivos;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripMenuItem proveedorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registroDeProveedoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Proveedor;
+        private System.Windows.Forms.ToolStripMenuItem RegistroProveedores;
         private System.Windows.Forms.Timer temporizador;
         private System.Windows.Forms.ToolStripStatusLabel Hora;
         private System.Windows.Forms.ToolStripStatusLabel lblUsuario;

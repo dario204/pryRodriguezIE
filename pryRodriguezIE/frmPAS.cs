@@ -7,26 +7,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace pryRodriguezIE
 {
-    public partial class frmPAS : Form
+    public partial class frmPas : Form
     {
-        public frmPAS()
+        public frmPas()
         {
             InitializeComponent();
         }
-        string Acuario = @"C:\Alumno\Source\repos\pryRodriguezIE\Proveedores\Acuario";
-        string Alfa= @"C:\Alumno\Source\repos\pryRodriguezIE\Proveedores\Alfa";
-        string Apolo= @"C:\Alumno\Source\repos\pryRodriguezIE\Proveedores\Apolo";
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
-        private void frmPAS_Load(object sender, EventArgs e)
+        
+        private void frmPas_Load(object sender, EventArgs e)
         {
-            //TreeNode Acuario = tvCarpetas.Nodes.Add(Acuario, carpeta1);
+            //traer todos los proveedores registrados
+            dgvProveedores.Columns.Add("1", "Titulo");
+            StreamReader lector = new StreamReader("Libro1.csv");
+            string leerRenglon="";
+            string[] seprarDatos;
+            leerRenglon = lector.ReadLine();    //
+            seprarDatos = leerRenglon.Split() ; //divide el renglon
+            bool primeraFila = true;
+            while (!lector.EndOfStream)
+            {
+                if (primeraFila == true)
+                {
+                    for (int indice = 0; indice < seprarDatos.Length; indice++)
+                    {
+                        dgvProveedores.Rows.Add(seprarDatos[indice], "titulos");
+                    }
+
+                   
+                }
+                else
+                {
+                    dgvProveedores.Rows.Add(seprarDatos);
+                }
+            }
+
+            lector.Close();
         }
     }
 }

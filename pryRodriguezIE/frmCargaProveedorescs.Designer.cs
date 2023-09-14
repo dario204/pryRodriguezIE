@@ -1,6 +1,6 @@
 ﻿namespace pryRodriguezIE
 {
-    partial class frmLogoEmpresa
+    partial class frmCargaProveedorescs
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.temporizador = new System.Windows.Forms.Timer(this.components);
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
-            // temporizador
+            // treeView1
             // 
-            this.temporizador.Enabled = true;
-            this.temporizador.Interval = 1000;
-            this.temporizador.Tick += new System.EventHandler(this.temporizador_Tick);
+            this.treeView1.Location = new System.Drawing.Point(62, 35);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(142, 122);
+            this.treeView1.TabIndex = 0;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
-            // frmLogoEmpresa
+            // frmCargaProveedorescs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::pryRodriguezIE.Properties.Resources.images;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmLogoEmpresa";
+            this.Controls.Add(this.treeView1);
+            this.Name = "frmCargaProveedorescs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmLogoEmpresa";
-            this.Load += new System.EventHandler(this.frmLogoEmpresa_Load);
+            this.Text = "Carga de Proveedores";
+            this.Load += new System.EventHandler(this.frmCargaProveedorescs_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Timer temporizador;
+        private System.Windows.Forms.TreeView treeView1;
     }
 }
