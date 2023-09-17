@@ -28,23 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.treeViewArchivos = new System.Windows.Forms.TreeView();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // treeView1
+            // treeViewArchivos
             // 
-            this.treeView1.Location = new System.Drawing.Point(62, 35);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(142, 122);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.treeViewArchivos.Location = new System.Drawing.Point(83, 43);
+            this.treeViewArchivos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.treeViewArchivos.Name = "treeViewArchivos";
+            this.treeViewArchivos.Size = new System.Drawing.Size(356, 233);
+            this.treeViewArchivos.TabIndex = 0;
+            this.treeViewArchivos.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(83, 314);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(356, 215);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
             // 
             // frmCargaProveedorescs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.treeView1);
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.ClientSize = new System.Drawing.Size(548, 547);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.treeViewArchivos);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmCargaProveedorescs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Carga de Proveedores";
@@ -55,6 +68,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView treeViewArchivos;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
