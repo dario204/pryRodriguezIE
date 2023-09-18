@@ -12,9 +12,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace pryRodriguezIE
 {
-    public partial class frmCargaProveedorescs : Form
+    public partial class frmCargaProveedores : Form
     {
-        public frmCargaProveedorescs()
+        public frmCargaProveedores()
         {
             InitializeComponent();
             String rootFolderPath = "Proveedores";

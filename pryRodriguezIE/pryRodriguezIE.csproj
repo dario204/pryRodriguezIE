@@ -48,11 +48,11 @@
   <ItemGroup>
     <Compile Include="clsAccesoBD.cs" />
     <Compile Include="clsUsuario.cs" />
-    <Compile Include="frmCargaProveedorescs.cs">
+    <Compile Include="frmCargaProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCargaProveedorescs.Designer.cs">
-      <DependentUpon>frmCargaProveedorescs.cs</DependentUpon>
+    <Compile Include="frmCargaProveedores.Designer.cs">
+      <DependentUpon>frmCargaProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="frmInicioSesion.cs">
       <SubType>Form</SubType>
@@ -80,8 +80,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmCargaProveedorescs.resx">
-      <DependentUpon>frmCargaProveedorescs.cs</DependentUpon>
+    <EmbeddedResource Include="frmCargaProveedores.resx">
+      <DependentUpon>frmCargaProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInicioSesion.resx">
       <DependentUpon>frmInicioSesion.cs</DependentUpon>

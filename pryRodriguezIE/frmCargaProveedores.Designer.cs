@@ -1,6 +1,6 @@
 ﻿namespace pryRodriguezIE
 {
-    partial class frmCargaProveedorescs
+    partial class frmCargaProveedores
     {
         /// <summary>
         /// Required designer variable.

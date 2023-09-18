@@ -50,10 +50,12 @@ namespace pryRodriguezIE
 
         private void activosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
             StreamWriter sw = new StreamWriter("logGeneral", true);
             sw.WriteLine(lblUsuario.Text + "-Fecha:" + DateTime.Now + "- Accede:");
             sw.Close();
+            frmCargaProveedores proveedores = new frmCargaProveedores();
+            proveedores.ShowDialog();
         }
 
         private void registroDeProveedoresToolStripMenuItem_Click(object sender, EventArgs e)

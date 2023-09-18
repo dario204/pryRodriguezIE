@@ -25,32 +25,50 @@ namespace pryRodriguezIE
         
         private void frmPas_Load(object sender, EventArgs e)
         {
-            //traer todos los proveedores registrados
-            dgvProveedores.Columns.Add("1", "Titulo");
-            StreamReader lector = new StreamReader("Libro1.csv");
-            string leerRenglon="";
-            string[] seprarDatos;
-            leerRenglon = lector.ReadLine();    //
-            seprarDatos = leerRenglon.Split() ; //divide el renglon
-            bool primeraFila = true;
-            while (!lector.EndOfStream)
+            string ArchivoProveedor = "Listado de aseguradores.csv";
+            try
             {
-                if (primeraFila == true)
+                using (StreamReader sr = new StreamReader(ArchivoProveedor))
                 {
-                    for (int indice = 0; indice < seprarDatos.Length; indice++)
+                    string readLine = sr.ReadLine();
+                    if (readLine != null)
                     {
-                        dgvProveedores.Rows.Add(seprarDatos[indice], "titulos");
-                    }
+                        string[] separador = readLine.Split(';');
 
-                   
-                }
-                else
-                {
-                    dgvProveedores.Rows.Add(seprarDatos);
+                        foreach (string columna in separador)
+                        {
+                            dgvProveedores.Columns.Add(columna, columna);
+                        }
+                        HashSet<string> juridicciones = new HashSet<string>();
+                        HashSet<string> responsablesUnicos = new HashSet<string>();
+
+                        while (!sr.EndOfStream)
+                        {
+                            readLine = sr.ReadLine();
+                            separador = readLine.Split(';');
+                            dgvProveedores.Rows.Add(separador);
+                            juridicciones.Add(separador[3]);
+                            responsablesUnicos.Add(separador[7]);
+                        }
+
+                        //Carga de jurisdicciones unicas sin repetir
+                        foreach (string jurisdiccion in juridicciones)
+                        {
+                            cboJurisdiccion.Items.Add(jurisdiccion);
+                        }
+
+                        foreach (string responsable in responsablesUnicos)
+                        {
+                            cboLiquidador.Items.Add(responsable);
+                        }
+                    }
                 }
             }
-
-            lector.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex + MessageBoxButtons.OK +MessageBoxIcon.Warning);
+                
+            }
         }
     }
 }
