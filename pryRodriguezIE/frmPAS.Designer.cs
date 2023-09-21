@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPas));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.mcrDatos = new System.Windows.Forms.GroupBox();
-            this.cboJurisdiccion = new System.Windows.Forms.ComboBox();
+            this.cboJuzgado = new System.Windows.Forms.ComboBox();
             this.cboLiquidador = new System.Windows.Forms.ComboBox();
             this.txtExpediente = new System.Windows.Forms.TextBox();
             this.txtApertura = new System.Windows.Forms.TextBox();
@@ -50,6 +50,8 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvProveedores = new System.Windows.Forms.DataGridView();
+            this.cboJursdiccion = new System.Windows.Forms.ComboBox();
+            this.lblJurisdiccion = new System.Windows.Forms.Label();
             this.mcrDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +68,9 @@
             // 
             // mcrDatos
             // 
-            this.mcrDatos.Controls.Add(this.cboJurisdiccion);
+            this.mcrDatos.Controls.Add(this.lblJurisdiccion);
+            this.mcrDatos.Controls.Add(this.cboJursdiccion);
+            this.mcrDatos.Controls.Add(this.cboJuzgado);
             this.mcrDatos.Controls.Add(this.cboLiquidador);
             this.mcrDatos.Controls.Add(this.txtExpediente);
             this.mcrDatos.Controls.Add(this.txtApertura);
@@ -86,21 +90,23 @@
             this.mcrDatos.Size = new System.Drawing.Size(522, 300);
             this.mcrDatos.TabIndex = 1;
             this.mcrDatos.TabStop = false;
-            this.mcrDatos.Text = "Datos";
+            this.mcrDatos.Text = "Datos del Proveedor";
             // 
-            // cboJurisdiccion
+            // cboJuzgado
             // 
-            this.cboJurisdiccion.FormattingEnabled = true;
-            this.cboJurisdiccion.Location = new System.Drawing.Point(154, 151);
-            this.cboJurisdiccion.Name = "cboJurisdiccion";
-            this.cboJurisdiccion.Size = new System.Drawing.Size(177, 26);
-            this.cboJurisdiccion.TabIndex = 18;
-            this.cboJurisdiccion.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.cboJuzgado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboJuzgado.FormattingEnabled = true;
+            this.cboJuzgado.Location = new System.Drawing.Point(154, 151);
+            this.cboJuzgado.Name = "cboJuzgado";
+            this.cboJuzgado.Size = new System.Drawing.Size(177, 26);
+            this.cboJuzgado.TabIndex = 18;
+            this.cboJuzgado.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // cboLiquidador
             // 
+            this.cboLiquidador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLiquidador.FormattingEnabled = true;
-            this.cboLiquidador.Location = new System.Drawing.Point(209, 235);
+            this.cboLiquidador.Location = new System.Drawing.Point(211, 265);
             this.cboLiquidador.Name = "cboLiquidador";
             this.cboLiquidador.Size = new System.Drawing.Size(180, 26);
             this.cboLiquidador.TabIndex = 17;
@@ -124,7 +130,7 @@
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(154, 199);
+            this.txtDireccion.Location = new System.Drawing.Point(154, 226);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(279, 24);
             this.txtDireccion.TabIndex = 11;
@@ -149,7 +155,7 @@
             // 
             this.lblLiquidador.AutoSize = true;
             this.lblLiquidador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLiquidador.Location = new System.Drawing.Point(15, 235);
+            this.lblLiquidador.Location = new System.Drawing.Point(15, 265);
             this.lblLiquidador.Name = "lblLiquidador";
             this.lblLiquidador.Size = new System.Drawing.Size(188, 18);
             this.lblLiquidador.TabIndex = 8;
@@ -160,7 +166,7 @@
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDireccion.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblDireccion.Location = new System.Drawing.Point(15, 199);
+            this.lblDireccion.Location = new System.Drawing.Point(15, 226);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(85, 18);
             this.lblDireccion.TabIndex = 7;
@@ -233,6 +239,7 @@
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -257,8 +264,28 @@
             this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProveedores.Location = new System.Drawing.Point(12, 406);
             this.dgvProveedores.Name = "dgvProveedores";
+            this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProveedores.Size = new System.Drawing.Size(626, 211);
             this.dgvProveedores.TabIndex = 6;
+            this.dgvProveedores.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProveedores_CellMouseDoubleClick);
+            // 
+            // cboJursdiccion
+            // 
+            this.cboJursdiccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboJursdiccion.FormattingEnabled = true;
+            this.cboJursdiccion.Location = new System.Drawing.Point(154, 192);
+            this.cboJursdiccion.Name = "cboJursdiccion";
+            this.cboJursdiccion.Size = new System.Drawing.Size(177, 26);
+            this.cboJursdiccion.TabIndex = 19;
+            // 
+            // lblJurisdiccion
+            // 
+            this.lblJurisdiccion.AutoSize = true;
+            this.lblJurisdiccion.Location = new System.Drawing.Point(15, 195);
+            this.lblJurisdiccion.Name = "lblJurisdiccion";
+            this.lblJurisdiccion.Size = new System.Drawing.Size(104, 18);
+            this.lblJurisdiccion.TabIndex = 20;
+            this.lblJurisdiccion.Text = "Jurisdiccion:";
             // 
             // frmPas
             // 
@@ -303,12 +330,14 @@
         private System.Windows.Forms.Label lblApertura;
         private System.Windows.Forms.Label lblEntidad;
         private System.Windows.Forms.Label lblNumero;
-        private System.Windows.Forms.ComboBox cboJurisdiccion;
+        private System.Windows.Forms.ComboBox cboJuzgado;
         private System.Windows.Forms.ComboBox cboLiquidador;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvProveedores;
+        private System.Windows.Forms.Label lblJurisdiccion;
+        private System.Windows.Forms.ComboBox cboJursdiccion;
     }
 }

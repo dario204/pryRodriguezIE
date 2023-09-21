@@ -17,7 +17,7 @@ namespace pryRodriguezIE
         {
             InitializeComponent();
         }
-
+        clsProveedor Proveedor = new clsProveedor();
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -54,7 +54,7 @@ namespace pryRodriguezIE
                         //Carga de jurisdicciones unicas sin repetir
                         foreach (string jurisdiccion in juridicciones)
                         {
-                            cboJurisdiccion.Items.Add(jurisdiccion);
+                            cboJuzgado.Items.Add(jurisdiccion);
                         }
 
                         foreach (string responsable in responsablesUnicos)
@@ -69,6 +69,16 @@ namespace pryRodriguezIE
                 MessageBox.Show("Error" + ex + MessageBoxButtons.OK +MessageBoxIcon.Warning);
                 
             }
+        }
+
+        private void dgvProveedores_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
