@@ -8,5 +8,6 @@ namespace pryRodriguezIE
 {
     internal class clsUsuario
     {
+
     }
 }
