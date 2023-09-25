@@ -12,89 +12,133 @@ namespace pryRodriguezIE
     {
         private readonly string filePath;
        
-        public CsvFileManager(string filePath)
+        public clsAccesoBD(string filePath)
         {
             this.filePath = filePath;
         }
         
-        public List<string[]> ReadCsv()
+        public List<string[]> LeerCsv()
         {
-            List<string[]> records = new List<string[]>();
+            List<string[]> registros = new List<string[]>(); //Crea una lista para guardar los datos
 
             try
             {
                 // Abre el archivo CSV para lectura.
                 using (StreamReader reader = new StreamReader(filePath))
                 {
-                    string line;
+                    string linea;
                     // Lee cada línea del archivo CSV y la divide en campos.
-                    while ((line = reader.ReadLine()) != null)
+                    while ((linea = reader.ReadLine()) != null)
                     {
-                        string[] fields = line.Split(',');
-                        records.Add(fields); // Agrega los campos a la lista de registros.
+                        string[] campos = linea.Split(',');
+                        registros.Add(campos); // Agrega los campos a la lista de registros.
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al leer el archivo CSV: {ex.Message}");
+                MessageBox.Show($"Error al leer el archivo CSV: {ex.Message}");
             }
 
-            return records; // Devuelve la lista de registros leídos.
+            return registros; // Devuelve la lista de registros leídos.
         }
 
-        public void WriteCsv(List<string[]> records)
+        public void EscribirCsv(List<string[]> registros)
         {
             try
             {
                 // Abre el archivo CSV para escritura.
                 using (StreamWriter writer = new StreamWriter(filePath))
                 {
-                    foreach (string[] fields in records)
+                    foreach (string[] campos in registros)
                     {
                         // Convierte los campos de registro en una línea CSV y la escribe en el archivo.
-                        string line = string.Join(",", fields);
-                        writer.WriteLine(line);
+                        string linea = string.Join(",", campos);
+                        writer.WriteLine(linea);
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al escribir en el archivo CSV: {ex.Message}");
+                MessageBox.Show($"Error al escribir en el archivo CSV: {ex.Message}");
             }
         }
         static void Main(string[] args)
         {
-            string csvFilePath = "Lista de proveedores.csv"; // Cambia esto a la ruta de tu archivo CSV
+            string csvFilePath = "Lista de proveedores.csv"; 
 
-            CsvFileManager csvManager = new CsvFileManager(csvFilePath);
+            clsAccesoBD csvManager = new clsAccesoBD(csvFilePath);
 
             // Leer el archivo CSV existente
-            var records = csvManager.ReadCsv();
+            var registros = csvManager.LeerCsv();
 
             // Mostrar los datos actuales
-            Console.WriteLine("Datos actuales en el archivo CSV:");
-            foreach (var record in records)
+            MessageBox.Show("Datos actuales en el archivo CSV:");
+            foreach (var record in registros)
             {
-                Console.WriteLine(string.Join(", ", record));
+                MessageBox.Show(string.Join(", ", registros));
             }
 
             // Pedir al usuario que ingrese datos para modificar el archivo CSV
-            Console.WriteLine("Ingrese nuevos datos (separados por comas):");
+            MessageBox.Show("Ingrese nuevos datos (separados por comas):");
             string input = Console.ReadLine();
-            string[] newData = input.Split(',');
+            string[] DatoNuevo = input.Split(';');
 
             // Aplicar las modificaciones
-            records.Add(newData);
+            registros.Add(DatoNuevo);
 
             // Escribir el archivo CSV actualizado
-            csvManager.WriteCsv(records);
+            csvManager.EscribirCsv(registros);
 
-            Console.WriteLine("Datos actualizados en el archivo CSV:");
-            foreach (var record in records)
+            MessageBox.Show("Datos actualizados en el archivo CSV:");
+            foreach (var record in registros)
             {
-                Console.WriteLine(string.Join(", ", record));
+                MessageBox.Show(string.Join(", ", registros));
+            }
+        }
+        static void Main()
+        {
+            string filePath = "Lista de aseguradores.csv"; // Reemplaza con la ruta de tu archivo CSV
+
+            // Llama al procedimiento para eliminar una línea
+            EliminarLineaCSV(filePath, "Número a eliminar");
+
+            MessageBox.Show("Proceso completado.");
+        }
+
+        static void EliminarLineaCSV(string filePath, string numeroAEliminar)
+        {
+            if (!File.Exists(filePath))
+            {
+                MessageBox.Show("El archivo CSV no existe.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(numeroAEliminar))
+            {
+                MessageBox.Show("Ingresa un número antes de eliminar.");
+                return;
+            }
+
+            try
+            {
+                // Lee todas las líneas del archivo CSV
+                string[] linea = File.ReadAllLines(filePath);
+
+                // Encuentra la línea que contiene el número a eliminar
+                var ActualizarLinea = linea.Where(line => !linea.Contains(numeroAEliminar)).ToList();
+
+                // Escribe las líneas restantes en el archivo CSV (sin la línea a eliminar)
+                File.WriteAllLines(filePath, ActualizarLinea);
+
+                MessageBox.Show("Línea eliminada con éxito.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar la línea: {ex.Message}");
             }
         }
     }
+
 }
+
