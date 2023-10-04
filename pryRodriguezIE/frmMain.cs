@@ -26,14 +26,24 @@ namespace pryRodriguezIE
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            if (lblUsuario.Text=="")
+            string Ruta = "logsMain.txt";
+            using (StreamReader reader = new StreamReader(Ruta))
             {
-                listadoReportes.Visible = false;
-            }
-            Hora.Text = DateTime.Now.ToLongTimeString();
 
-            temporizador.Interval = 1000;
-            temporizador.Start();
+                string linea;
+                while ((linea = reader.ReadLine()) != null)
+                {
+
+                    string[] partes = linea.Split('-');
+                    if (partes.Length == 2)
+                    {
+                        string usuario = partes[0].Trim();
+                        string horaIngreso = partes[1].Trim();
+
+                        lblUsuario.Text = usuario;
+                    }
+                }
+            }
         }
 
         private void Hora_Click(object sender, EventArgs e)
@@ -50,18 +60,35 @@ namespace pryRodriguezIE
 
         private void activosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            StreamWriter sw = new StreamWriter("logGeneral", true);
-            sw.WriteLine(lblUsuario.Text + "-Fecha:" + DateTime.Now + "- Accede:");
-            sw.Close();
-            frmCargaProveedores proveedores = new frmCargaProveedores();
-            proveedores.ShowDialog();
+            frmProveedoresActivos f = new frmProveedoresActivos();
+            f.ShowDialog();
+
+            string user = lblUsuario.Text;
+            string Hora = Convert.ToString(DateTime.Now);
+            string Ruta = "logsMenu.txt";
+            string menu = menuActivos.Text;
+
+            using (StreamWriter writer = new StreamWriter(Ruta, true))
+            {
+                writer.WriteLine($"{user} - Hora de ingreso: {Hora} - Ingreso: {menu}");
+            }
+
         }
 
         private void registroDeProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPas pas = new frmPas();
-            pas.ShowDialog();
+            frmPas P = new frmPas();
+            P.ShowDialog();
+
+            string user = lblUsuario.Text;
+            string Hora = Convert.ToString(DateTime.Now);
+            string Ruta = "logsMenu.txt";
+            string menu = RegistroProveedores.Text;
+
+            using (StreamWriter writer = new StreamWriter(Ruta, true))
+            {
+                writer.WriteLine($"{user} - Hora de ingreso: {Hora} - Ingreso: {menu}");
+            }
         }
     }
 }

@@ -12,9 +12,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace pryRodriguezIE
 {
-    public partial class frmCargaProveedores : Form
+    public partial class frmProveedoresActivos : Form
     {
-        public frmCargaProveedores()
+        public frmProveedoresActivos()
         {
             InitializeComponent();
             String rootFolderPath = "Proveedores";
@@ -36,10 +36,10 @@ namespace pryRodriguezIE
                 {
                     try
                     {
-                        // Lee el contenido del archivo de texto y muéstralo.
+                        // Lee el contenido del archivo de texto y lo muestra.
                         string fileContent = File.ReadAllText(filePath);
 
-                        // Puedes mostrar el contenido en un control TextBox o RichTextBox, por ejemplo.
+                        // Muestra el contenido en un RichTextBox
                         richTextBox1.Text = fileContent;
                     }
                     catch (IOException ex)

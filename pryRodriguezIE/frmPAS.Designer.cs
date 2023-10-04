@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPas));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.mcrDatos = new System.Windows.Forms.GroupBox();
+            this.dtpApertura = new System.Windows.Forms.DateTimePicker();
             this.lblJurisdiccion = new System.Windows.Forms.Label();
             this.cboJurisdiccion = new System.Windows.Forms.ComboBox();
             this.cboJuzgado = new System.Windows.Forms.ComboBox();
@@ -51,7 +52,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvProveedores = new System.Windows.Forms.DataGridView();
-            this.dtpApertura = new System.Windows.Forms.DateTimePicker();
             this.mcrDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             this.SuspendLayout();
@@ -87,13 +87,20 @@
             this.mcrDatos.Controls.Add(this.lblNumero);
             this.mcrDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mcrDatos.Location = new System.Drawing.Point(16, 73);
-            this.mcrDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mcrDatos.Margin = new System.Windows.Forms.Padding(4);
             this.mcrDatos.Name = "mcrDatos";
-            this.mcrDatos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mcrDatos.Padding = new System.Windows.Forms.Padding(4);
             this.mcrDatos.Size = new System.Drawing.Size(696, 369);
             this.mcrDatos.TabIndex = 1;
             this.mcrDatos.TabStop = false;
             this.mcrDatos.Text = "Datos del Proveedor";
+            // 
+            // dtpApertura
+            // 
+            this.dtpApertura.Location = new System.Drawing.Point(205, 111);
+            this.dtpApertura.Name = "dtpApertura";
+            this.dtpApertura.Size = new System.Drawing.Size(235, 29);
+            this.dtpApertura.TabIndex = 21;
             // 
             // lblJurisdiccion
             // 
@@ -110,7 +117,7 @@
             this.cboJurisdiccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboJurisdiccion.FormattingEnabled = true;
             this.cboJurisdiccion.Location = new System.Drawing.Point(205, 236);
-            this.cboJurisdiccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboJurisdiccion.Margin = new System.Windows.Forms.Padding(4);
             this.cboJurisdiccion.Name = "cboJurisdiccion";
             this.cboJurisdiccion.Size = new System.Drawing.Size(235, 32);
             this.cboJurisdiccion.TabIndex = 19;
@@ -120,7 +127,7 @@
             this.cboJuzgado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboJuzgado.FormattingEnabled = true;
             this.cboJuzgado.Location = new System.Drawing.Point(205, 186);
-            this.cboJuzgado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboJuzgado.Margin = new System.Windows.Forms.Padding(4);
             this.cboJuzgado.Name = "cboJuzgado";
             this.cboJuzgado.Size = new System.Drawing.Size(235, 32);
             this.cboJuzgado.TabIndex = 18;
@@ -131,7 +138,7 @@
             this.cboLiquidador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLiquidador.FormattingEnabled = true;
             this.cboLiquidador.Location = new System.Drawing.Point(281, 326);
-            this.cboLiquidador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboLiquidador.Margin = new System.Windows.Forms.Padding(4);
             this.cboLiquidador.Name = "cboLiquidador";
             this.cboLiquidador.Size = new System.Drawing.Size(239, 32);
             this.cboLiquidador.TabIndex = 17;
@@ -140,7 +147,7 @@
             // 
             this.txtExpediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtExpediente.Location = new System.Drawing.Point(205, 148);
-            this.txtExpediente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtExpediente.Margin = new System.Windows.Forms.Padding(4);
             this.txtExpediente.Name = "txtExpediente";
             this.txtExpediente.Size = new System.Drawing.Size(153, 29);
             this.txtExpediente.TabIndex = 13;
@@ -149,7 +156,7 @@
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(205, 278);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(371, 29);
             this.txtDireccion.TabIndex = 11;
@@ -158,7 +165,7 @@
             // 
             this.txtEntidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEntidad.Location = new System.Drawing.Point(205, 65);
-            this.txtEntidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEntidad.Margin = new System.Windows.Forms.Padding(4);
             this.txtEntidad.Name = "txtEntidad";
             this.txtEntidad.Size = new System.Drawing.Size(371, 29);
             this.txtEntidad.TabIndex = 10;
@@ -167,7 +174,7 @@
             // 
             this.txtNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumero.Location = new System.Drawing.Point(205, 26);
-            this.txtNumero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNumero.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(145, 29);
             this.txtNumero.TabIndex = 9;
@@ -202,9 +209,9 @@
             this.lblJuzgado.Location = new System.Drawing.Point(20, 196);
             this.lblJuzgado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblJuzgado.Name = "lblJuzgado";
-            this.lblJuzgado.Size = new System.Drawing.Size(163, 24);
+            this.lblJuzgado.Size = new System.Drawing.Size(95, 24);
             this.lblJuzgado.TabIndex = 6;
-            this.lblJuzgado.Text = "Juzgado Jurisd.:";
+            this.lblJuzgado.Text = "Juzgado:";
             // 
             // lblExpediente
             // 
@@ -252,40 +259,48 @@
             // 
             // btnAgregar
             // 
+            this.btnAgregar.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Location = new System.Drawing.Point(733, 117);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(117, 43);
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
+            this.btnModificar.BackColor = System.Drawing.Color.Orange;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Location = new System.Drawing.Point(733, 208);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(117, 43);
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
+            this.btnEliminar.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Location = new System.Drawing.Point(733, 309);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(117, 43);
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(733, 399);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(117, 43);
             this.btnCancelar.TabIndex = 5;
@@ -296,20 +311,13 @@
             // 
             this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProveedores.Location = new System.Drawing.Point(16, 500);
-            this.dgvProveedores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvProveedores.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProveedores.Name = "dgvProveedores";
             this.dgvProveedores.RowHeadersWidth = 51;
             this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProveedores.Size = new System.Drawing.Size(835, 260);
             this.dgvProveedores.TabIndex = 6;
             this.dgvProveedores.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProveedores_CellMouseDoubleClick);
-            // 
-            // dtpApertura
-            // 
-            this.dtpApertura.Location = new System.Drawing.Point(205, 111);
-            this.dtpApertura.Name = "dtpApertura";
-            this.dtpApertura.Size = new System.Drawing.Size(235, 29);
-            this.dtpApertura.TabIndex = 21;
             // 
             // frmPas
             // 
@@ -326,7 +334,7 @@
             this.Controls.Add(this.lblTitulo);
             this.ForeColor = System.Drawing.Color.DarkBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Proveedor de Seguro (PAS)";

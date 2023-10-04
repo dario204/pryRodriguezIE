@@ -9,14 +9,20 @@ namespace pryRodriguezIE
 {
     internal class clsProveedor
     {
-        public void Registrar( Int32 Numero, string Entidad, DateTime Apertura, Int32 Expediente, string Juzgado, string jurisdiccion, string direccion, string liquidador)
+        private readonly string filePath;
+
+        public clsProveedor(string filePath)
+        {
+            this.filePath = filePath;
+        }
+        public void Registrar(Int32 Numero, string Entidad, DateTime Apertura, Int32 Expediente, string Juzgado, string jurisdiccion, string direccion, string liquidador)
         {
             string archivoProveedor = "Listado de aseguradore.csv";
             try
             {
                 // Crear una lista para almacenar los IDs existentes en el archivo
                 List<int> idExistente = new List<int>();
-                using (StreamReader sr= new StreamReader(archivoProveedor))
+                using (StreamReader sr = new StreamReader(archivoProveedor))
                 {
                     string readLine;
                     while ((readLine = sr.ReadLine()) != null)
@@ -48,10 +54,166 @@ namespace pryRodriguezIE
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-               
-            }
-        } 
-        
 
+            }
+        }
+
+       // static void Main()
+       // {
+          //  string filePath = "Lista de aseguradores.csv"; // Reemplaza con la ruta de tu archivo CSV
+
+            // Llama al procedimiento para eliminar una línea
+          //  EliminarLineaCSV(filePath, "Número a eliminar");
+
+          //  MessageBox.Show("Proceso completado.");
+      //  }
+
+        static void EliminarLineaCSV(string filePath, string numeroAEliminar)
+        {
+            if (!File.Exists(filePath))
+            {
+                MessageBox.Show("El archivo CSV no existe.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(numeroAEliminar))
+            {
+                MessageBox.Show("Ingresa un número antes de eliminar.");
+                return;
+            }
+
+            try
+            {
+                // Lee todas las líneas del archivo CSV
+                string[] linea = File.ReadAllLines(filePath);
+
+                // Encuentra la línea que contiene el número a eliminar
+                var ActualizarLinea = linea.Where(line => !linea.Contains(numeroAEliminar)).ToList();
+
+                // Escribe las líneas restantes en el archivo CSV (sin la línea a eliminar)
+                File.WriteAllLines(filePath, ActualizarLinea);
+
+                MessageBox.Show("Línea eliminada con éxito.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar la línea: {ex.Message}");
+            }
+        }
+
+        public void Modificar(int id, string entidad, string Apertura, string expendiente, string juzg, string juri, string direccion, string liquidador)
+        {
+            string archivoProveedor = "Listado de aseguradores.csv";
+
+            try
+            {
+                List<string> lineas = new List<string>();
+                bool primerLinea = true;
+
+                using (StreamReader lector = new StreamReader(archivoProveedor))
+                {
+                    string readLine;
+                    while ((readLine = lector.ReadLine()) != null)
+                    {
+                        string[] separador = readLine.Split(';');
+
+                        if (separador.Length > 0 && int.TryParse(separador[0], out int existingID))
+                        {
+                            if (existingID == id)
+                            {
+                                string nuevaLinea = $"{id};{entidad};{Apertura};{expendiente};{juzg};{juri};{direccion};{liquidador}";
+                                lineas.Add(nuevaLinea);
+                            }
+                            else
+                            {
+                                lineas.Add(readLine);
+                            }
+                        }
+                    }
+                }
+
+                // Escribe las líneas en el archivo original
+                using (StreamWriter sw = new StreamWriter(archivoProveedor, false))
+                {
+                    foreach (string linea in lineas)
+                    {
+                        // Agrega la primera línea con los títulos de las columnas
+                        if (primerLinea)
+                        {
+                            sw.WriteLine(linea);
+                            primerLinea = false;
+                        }
+                        else
+                        {
+                            sw.WriteLine(linea);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar el archivo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void CargarGrilla(DataGridView grilla, ComboBox cboJuzgado, ComboBox cboJurisdiccion, ComboBox cboLiquidador)
+        {
+            string archivoProveedor = "Listado de aseguradores.csv";
+            grilla.Rows.Clear();
+
+            try
+            {
+                using (StreamReader sr = new StreamReader(archivoProveedor))
+                {
+                    string readLine = sr.ReadLine();
+                    if (readLine != null)
+                    {
+                        string[] separador = readLine.Split(';');
+
+                        foreach (string columna in separador)
+                        {
+                            grilla.Columns.Add(columna, columna);
+                        }
+
+                        HashSet<string> jurisdiccionesUnicas = new HashSet<string>();
+                        HashSet<string> responsablesUnicos = new HashSet<string>();
+                        HashSet<string> juzgadosUnicos = new HashSet<string>();
+
+
+
+                        while (!sr.EndOfStream)
+                        {
+                            readLine = sr.ReadLine();
+                            separador = readLine.Split(';');
+                            grilla.Rows.Add(separador);
+
+                            juzgadosUnicos.Add(separador[4]);
+                            jurisdiccionesUnicas.Add(separador[5]);
+                            responsablesUnicos.Add(separador[7]);
+
+                        }
+
+                        //Carga de jurisdiccions unicas sin repetir
+                        foreach (string jurisdiccion in jurisdiccionesUnicas)
+                        {
+                            cboJurisdiccion.Items.Add(jurisdiccion);
+                        }
+
+                        foreach (string responsable in responsablesUnicos)
+                        {
+                            cboLiquidador.Items.Add(responsable);
+                        }
+
+                        foreach (string juzgado in juzgadosUnicos)
+                        {
+                            cboJuzgado.Items.Add(juzgado);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar el archivo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

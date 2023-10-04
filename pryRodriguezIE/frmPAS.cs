@@ -17,84 +17,46 @@ namespace pryRodriguezIE
         {
             InitializeComponent();
         }
-        clsProveedor Proveedor = new clsProveedor();
+        clsProveedor proveedor = new clsProveedor("Listado de aseguradores.csv");
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-        
+
         private void frmPas_Load(object sender, EventArgs e)
         {
-            
+            proveedor.CargarGrilla(dgvProveedores, cboJurisdiccion, cboJuzgado, cboLiquidador);
         }
-        private void cargarGrilla()
-        {
-            string archivoProveedor = "Listado de aseguradores.csv";
-            dgvProveedores.Rows.Clear();
 
-            try
-            {
-                using (StreamReader sr = new StreamReader(archivoProveedor))
-                {
-                    string readLine = sr.ReadLine();
-                    if (readLine != null)
-                    {
-                        string[] separador = readLine.Split(';');
-
-                        foreach (string columna in separador)
-                        {
-                            dgvProveedores.Columns.Add(columna, columna);
-                        }
-
-                        HashSet<string> jurisdiccionesUnicas = new HashSet<string>();
-                        HashSet<string> responsablesUnicos = new HashSet<string>();
-                        HashSet<string> juzgadosUnicos = new HashSet<string>();
-
-
-
-                        while (!sr.EndOfStream)
-                        {
-                            readLine = sr.ReadLine();
-                            separador = readLine.Split(';');
-                            dgvProveedores.Rows.Add(separador);
-
-                            juzgadosUnicos.Add(separador[4]);
-                            jurisdiccionesUnicas.Add(separador[5]);
-                            responsablesUnicos.Add(separador[7]);
-
-                        }
-
-                        //Carga de jurisdiccions unicas sin repetir
-                        foreach (string jurisdiccion in jurisdiccionesUnicas)
-                        {
-                            cboJurisdiccion.Items.Add(jurisdiccion);
-                        }
-
-                        foreach (string responsable in responsablesUnicos)
-                        {
-                            cboLiquidador.Items.Add(responsable);
-                        }
-
-                        foreach (string juzgado in juzgadosUnicos)
-                        {
-                            cboJuzgado.Items.Add(juzgado);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar el archivo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
         private void dgvProveedores_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            
+            int numero = Convert.ToInt32(txtNumero.Text);
+            string entidad = txtEntidad.Text;
+            string apertura = dtpApertura.Value.ToShortDateString();
+            string expediente = txtExpediente.Text;
+            string juzgado = cboJuzgado.Text;
+            string juris = cboJurisdiccion.Text;
+            string liqui = cboLiquidador.Text;
+            string direccion = txtDireccion.Text;
+
+
+            try
+            {
+                proveedor.Modificar(numero, entidad, apertura, expediente, juzgado, juris, direccion, liqui);
+                dgvProveedores.Rows.Clear();
+                proveedor.CargarGrilla(dgvProveedores, cboJuzgado, cboJurisdiccion, cboLiquidador);
+                btnAgregar.Enabled = false;
+                Limpiar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex, "", MessageBoxButtons.OK);
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -108,9 +70,34 @@ namespace pryRodriguezIE
             string Liquidador = cboLiquidador.Text;
             DateTime fechaApertura = dtpApertura.Value;
 
-            clsProveedor registroProveedor = new clsProveedor();
-            registroProveedor.Registrar(Numero, Entidad, fechaApertura, Expediente, Juzgado, Jurisdiccion, Direccion, Liquidador);
-            cargarGrilla();
+            try
+            {
+                proveedor.Registrar(Numero, Entidad, fechaApertura, Expediente, Juzgado, Jurisdiccion, Direccion, Liquidador);
+                proveedor.CargarGrilla(dgvProveedores, cboJuzgado, cboJurisdiccion, cboLiquidador);
+                btnAgregar.Enabled = false;
+                Limpiar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex, "", MessageBoxButtons.OK);
+            }
+        }
+        private void Limpiar()
+        {
+                txtDireccion.Text = "";
+                txtEntidad.Text = "";
+                txtExpediente.Text = "";
+                txtNumero.Text = "";
+                cboJuzgado.SelectedIndex = -1;
+                cboJurisdiccion.SelectedIndex = -1;
+                cboLiquidador.SelectedIndex = -1;
+            dgvProveedores.Rows.Clear();
+            
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
