@@ -16,9 +16,12 @@ namespace pryRodriguezIE
     {
         public frmProveedoresActivos()
         {
+            //PopulateDirectory();
             InitializeComponent();
+            // Establece la ruta de la carpeta raíz que deseas explorar. (esta en bin/debug que es el lugar por defecto q levanta el proyecto)
             String rootFolderPath = "Proveedores";
 
+            // Llama a la función para llenar el TreeView.
             PopulateTreeView(treeViewArchivos, rootFolderPath);
         }
 
@@ -36,10 +39,10 @@ namespace pryRodriguezIE
                 {
                     try
                     {
-                        // Lee el contenido del archivo de texto y lo muestra.
+                        // Lee el contenido del archivo de texto y muéstralo.
                         string fileContent = File.ReadAllText(filePath);
 
-                        // Muestra el contenido en un RichTextBox
+                        // Puedes mostrar el contenido en un control TextBox o RichTextBox, por ejemplo.
                         richTextBox1.Text = fileContent;
                     }
                     catch (IOException ex)
@@ -52,7 +55,7 @@ namespace pryRodriguezIE
 
         private void PopulateTreeView(System.Windows.Forms.TreeView treeView, string folderPath)
         {
-            DirectoryInfo rootDirectory = new DirectoryInfo(folderPath);
+            DirectoryInfo rootDirectory = new DirectoryInfo(@"..\..\Proveedores");
 
             // Limpia el TreeView antes de volver a llenarlo.
             treeView.Nodes.Clear();
@@ -84,6 +87,7 @@ namespace pryRodriguezIE
                     directoryNode.Nodes.Add(fileNode);
                 }
             }
+
         }
     }
 }

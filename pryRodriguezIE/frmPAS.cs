@@ -99,5 +99,16 @@ namespace pryRodriguezIE
         {
             proveedor.Main();
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtDireccion.Text = "";
+            txtEntidad.Text = "";
+            txtExpediente.Text = "";
+            txtNumero.Text = "";
+            cboJuzgado.SelectedIndex = -1;
+            cboJurisdiccion.SelectedIndex = -1;
+            cboLiquidador.SelectedIndex = -1;
+        }
     }
 }

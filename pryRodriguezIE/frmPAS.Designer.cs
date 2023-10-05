@@ -95,7 +95,7 @@
             // dtpApertura
             // 
             this.dtpApertura.Location = new System.Drawing.Point(154, 90);
-            this.dtpApertura.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpApertura.Margin = new System.Windows.Forms.Padding(2);
             this.dtpApertura.Name = "dtpApertura";
             this.dtpApertura.Size = new System.Drawing.Size(177, 24);
             this.dtpApertura.TabIndex = 21;
@@ -285,6 +285,7 @@
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // dgvProveedores
             // 
