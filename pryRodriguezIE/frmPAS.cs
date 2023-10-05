@@ -97,7 +97,7 @@ namespace pryRodriguezIE
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            
+            proveedor.Main();
         }
     }
 }

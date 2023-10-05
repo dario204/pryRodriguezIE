@@ -60,12 +60,11 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(156, 11);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitulo.Location = new System.Drawing.Point(202, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(532, 31);
+            this.lblTitulo.Size = new System.Drawing.Size(254, 25);
             this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Registro de Proveedor de Seguro (PAS)";
+            this.lblTitulo.Text = "Registro del Proveedor";
             // 
             // mcrDatos
             // 
@@ -86,29 +85,27 @@
             this.mcrDatos.Controls.Add(this.lblEntidad);
             this.mcrDatos.Controls.Add(this.lblNumero);
             this.mcrDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mcrDatos.Location = new System.Drawing.Point(16, 73);
-            this.mcrDatos.Margin = new System.Windows.Forms.Padding(4);
+            this.mcrDatos.Location = new System.Drawing.Point(12, 59);
             this.mcrDatos.Name = "mcrDatos";
-            this.mcrDatos.Padding = new System.Windows.Forms.Padding(4);
-            this.mcrDatos.Size = new System.Drawing.Size(696, 369);
+            this.mcrDatos.Size = new System.Drawing.Size(522, 300);
             this.mcrDatos.TabIndex = 1;
             this.mcrDatos.TabStop = false;
             this.mcrDatos.Text = "Datos del Proveedor";
             // 
             // dtpApertura
             // 
-            this.dtpApertura.Location = new System.Drawing.Point(205, 111);
+            this.dtpApertura.Location = new System.Drawing.Point(154, 90);
+            this.dtpApertura.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpApertura.Name = "dtpApertura";
-            this.dtpApertura.Size = new System.Drawing.Size(235, 29);
+            this.dtpApertura.Size = new System.Drawing.Size(177, 24);
             this.dtpApertura.TabIndex = 21;
             // 
             // lblJurisdiccion
             // 
             this.lblJurisdiccion.AutoSize = true;
-            this.lblJurisdiccion.Location = new System.Drawing.Point(20, 240);
-            this.lblJurisdiccion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblJurisdiccion.Location = new System.Drawing.Point(15, 195);
             this.lblJurisdiccion.Name = "lblJurisdiccion";
-            this.lblJurisdiccion.Size = new System.Drawing.Size(128, 24);
+            this.lblJurisdiccion.Size = new System.Drawing.Size(104, 18);
             this.lblJurisdiccion.TabIndex = 20;
             this.lblJurisdiccion.Text = "Jurisdiccion:";
             // 
@@ -116,20 +113,18 @@
             // 
             this.cboJurisdiccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboJurisdiccion.FormattingEnabled = true;
-            this.cboJurisdiccion.Location = new System.Drawing.Point(205, 236);
-            this.cboJurisdiccion.Margin = new System.Windows.Forms.Padding(4);
+            this.cboJurisdiccion.Location = new System.Drawing.Point(154, 192);
             this.cboJurisdiccion.Name = "cboJurisdiccion";
-            this.cboJurisdiccion.Size = new System.Drawing.Size(235, 32);
+            this.cboJurisdiccion.Size = new System.Drawing.Size(177, 26);
             this.cboJurisdiccion.TabIndex = 19;
             // 
             // cboJuzgado
             // 
             this.cboJuzgado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboJuzgado.FormattingEnabled = true;
-            this.cboJuzgado.Location = new System.Drawing.Point(205, 186);
-            this.cboJuzgado.Margin = new System.Windows.Forms.Padding(4);
+            this.cboJuzgado.Location = new System.Drawing.Point(154, 151);
             this.cboJuzgado.Name = "cboJuzgado";
-            this.cboJuzgado.Size = new System.Drawing.Size(235, 32);
+            this.cboJuzgado.Size = new System.Drawing.Size(177, 26);
             this.cboJuzgado.TabIndex = 18;
             this.cboJuzgado.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -137,56 +132,50 @@
             // 
             this.cboLiquidador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLiquidador.FormattingEnabled = true;
-            this.cboLiquidador.Location = new System.Drawing.Point(281, 326);
-            this.cboLiquidador.Margin = new System.Windows.Forms.Padding(4);
+            this.cboLiquidador.Location = new System.Drawing.Point(211, 265);
             this.cboLiquidador.Name = "cboLiquidador";
-            this.cboLiquidador.Size = new System.Drawing.Size(239, 32);
+            this.cboLiquidador.Size = new System.Drawing.Size(180, 26);
             this.cboLiquidador.TabIndex = 17;
             // 
             // txtExpediente
             // 
             this.txtExpediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtExpediente.Location = new System.Drawing.Point(205, 148);
-            this.txtExpediente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtExpediente.Location = new System.Drawing.Point(154, 120);
             this.txtExpediente.Name = "txtExpediente";
-            this.txtExpediente.Size = new System.Drawing.Size(153, 29);
+            this.txtExpediente.Size = new System.Drawing.Size(116, 24);
             this.txtExpediente.TabIndex = 13;
             // 
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(205, 278);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDireccion.Location = new System.Drawing.Point(154, 226);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(371, 29);
+            this.txtDireccion.Size = new System.Drawing.Size(279, 24);
             this.txtDireccion.TabIndex = 11;
             // 
             // txtEntidad
             // 
             this.txtEntidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEntidad.Location = new System.Drawing.Point(205, 65);
-            this.txtEntidad.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEntidad.Location = new System.Drawing.Point(154, 53);
             this.txtEntidad.Name = "txtEntidad";
-            this.txtEntidad.Size = new System.Drawing.Size(371, 29);
+            this.txtEntidad.Size = new System.Drawing.Size(279, 24);
             this.txtEntidad.TabIndex = 10;
             // 
             // txtNumero
             // 
             this.txtNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumero.Location = new System.Drawing.Point(205, 26);
-            this.txtNumero.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumero.Location = new System.Drawing.Point(154, 21);
             this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(145, 29);
+            this.txtNumero.Size = new System.Drawing.Size(110, 24);
             this.txtNumero.TabIndex = 9;
             // 
             // lblLiquidador
             // 
             this.lblLiquidador.AutoSize = true;
             this.lblLiquidador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLiquidador.Location = new System.Drawing.Point(20, 326);
-            this.lblLiquidador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLiquidador.Location = new System.Drawing.Point(15, 265);
             this.lblLiquidador.Name = "lblLiquidador";
-            this.lblLiquidador.Size = new System.Drawing.Size(236, 24);
+            this.lblLiquidador.Size = new System.Drawing.Size(188, 18);
             this.lblLiquidador.TabIndex = 8;
             this.lblLiquidador.Text = "Liquidador responsable:";
             // 
@@ -195,10 +184,9 @@
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDireccion.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblDireccion.Location = new System.Drawing.Point(20, 278);
-            this.lblDireccion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDireccion.Location = new System.Drawing.Point(15, 226);
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(105, 24);
+            this.lblDireccion.Size = new System.Drawing.Size(85, 18);
             this.lblDireccion.TabIndex = 7;
             this.lblDireccion.Text = "Dirección:";
             // 
@@ -206,10 +194,9 @@
             // 
             this.lblJuzgado.AutoSize = true;
             this.lblJuzgado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJuzgado.Location = new System.Drawing.Point(20, 196);
-            this.lblJuzgado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblJuzgado.Location = new System.Drawing.Point(15, 159);
             this.lblJuzgado.Name = "lblJuzgado";
-            this.lblJuzgado.Size = new System.Drawing.Size(95, 24);
+            this.lblJuzgado.Size = new System.Drawing.Size(77, 18);
             this.lblJuzgado.TabIndex = 6;
             this.lblJuzgado.Text = "Juzgado:";
             // 
@@ -217,10 +204,9 @@
             // 
             this.lblExpediente.AutoSize = true;
             this.lblExpediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpediente.Location = new System.Drawing.Point(20, 156);
-            this.lblExpediente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblExpediente.Location = new System.Drawing.Point(15, 127);
             this.lblExpediente.Name = "lblExpediente";
-            this.lblExpediente.Size = new System.Drawing.Size(100, 24);
+            this.lblExpediente.Size = new System.Drawing.Size(78, 18);
             this.lblExpediente.TabIndex = 5;
             this.lblExpediente.Text = "Nº Expe.:";
             // 
@@ -228,10 +214,9 @@
             // 
             this.lblApertura.AutoSize = true;
             this.lblApertura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApertura.Location = new System.Drawing.Point(20, 111);
-            this.lblApertura.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApertura.Location = new System.Drawing.Point(15, 90);
             this.lblApertura.Name = "lblApertura";
-            this.lblApertura.Size = new System.Drawing.Size(96, 24);
+            this.lblApertura.Size = new System.Drawing.Size(76, 18);
             this.lblApertura.TabIndex = 4;
             this.lblApertura.Text = "Apertura:";
             // 
@@ -239,10 +224,9 @@
             // 
             this.lblEntidad.AutoSize = true;
             this.lblEntidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntidad.Location = new System.Drawing.Point(20, 65);
-            this.lblEntidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEntidad.Location = new System.Drawing.Point(15, 53);
             this.lblEntidad.Name = "lblEntidad";
-            this.lblEntidad.Size = new System.Drawing.Size(87, 24);
+            this.lblEntidad.Size = new System.Drawing.Size(69, 18);
             this.lblEntidad.TabIndex = 3;
             this.lblEntidad.Text = "Entidad:";
             // 
@@ -250,10 +234,9 @@
             // 
             this.lblNumero.AutoSize = true;
             this.lblNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumero.Location = new System.Drawing.Point(20, 30);
-            this.lblNumero.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNumero.Location = new System.Drawing.Point(15, 24);
             this.lblNumero.Name = "lblNumero";
-            this.lblNumero.Size = new System.Drawing.Size(91, 24);
+            this.lblNumero.Size = new System.Drawing.Size(73, 18);
             this.lblNumero.TabIndex = 2;
             this.lblNumero.Text = "Número:";
             // 
@@ -261,10 +244,9 @@
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(733, 117);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregar.Location = new System.Drawing.Point(550, 95);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(117, 43);
+            this.btnAgregar.Size = new System.Drawing.Size(88, 35);
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -274,10 +256,9 @@
             // 
             this.btnModificar.BackColor = System.Drawing.Color.Orange;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(733, 208);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificar.Location = new System.Drawing.Point(550, 169);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(117, 43);
+            this.btnModificar.Size = new System.Drawing.Size(88, 35);
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -287,10 +268,9 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(733, 309);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Location = new System.Drawing.Point(550, 251);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(117, 43);
+            this.btnEliminar.Size = new System.Drawing.Size(88, 35);
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -299,10 +279,9 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(733, 399);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Location = new System.Drawing.Point(550, 324);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(117, 43);
+            this.btnCancelar.Size = new System.Drawing.Size(88, 35);
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -310,21 +289,20 @@
             // dgvProveedores
             // 
             this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProveedores.Location = new System.Drawing.Point(16, 500);
-            this.dgvProveedores.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvProveedores.Location = new System.Drawing.Point(12, 406);
             this.dgvProveedores.Name = "dgvProveedores";
             this.dgvProveedores.RowHeadersWidth = 51;
             this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProveedores.Size = new System.Drawing.Size(835, 260);
+            this.dgvProveedores.Size = new System.Drawing.Size(626, 211);
             this.dgvProveedores.TabIndex = 6;
             this.dgvProveedores.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProveedores_CellMouseDoubleClick);
             // 
             // frmPas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
-            this.ClientSize = new System.Drawing.Size(876, 812);
+            this.ClientSize = new System.Drawing.Size(657, 660);
             this.Controls.Add(this.dgvProveedores);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEliminar);
@@ -334,7 +312,6 @@
             this.Controls.Add(this.lblTitulo);
             this.ForeColor = System.Drawing.Color.DarkBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Proveedor de Seguro (PAS)";

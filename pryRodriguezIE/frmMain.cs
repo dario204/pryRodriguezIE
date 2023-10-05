@@ -26,7 +26,7 @@ namespace pryRodriguezIE
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            string Ruta = "logsMain.txt";
+            string Ruta = "logInicio.txt";
             using (StreamReader reader = new StreamReader(Ruta))
             {
 

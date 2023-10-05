@@ -58,17 +58,17 @@ namespace pryRodriguezIE
             }
         }
 
-       // static void Main()
-       // {
-          //  string filePath = "Lista de aseguradores.csv"; // Reemplaza con la ruta de tu archivo CSV
+        public void Main()
+        {
+            string filePath = "Lista de aseguradores.csv"; // Reemplaza con la ruta de tu archivo CSV
 
-            // Llama al procedimiento para eliminar una línea
-          //  EliminarLineaCSV(filePath, "Número a eliminar");
+             //Llama al procedimiento para eliminar una línea
+            EliminarLineaCSV(filePath, "Número a eliminar");
 
-          //  MessageBox.Show("Proceso completado.");
-      //  }
+            MessageBox.Show("Proceso completado.");
+        }
 
-        static void EliminarLineaCSV(string filePath, string numeroAEliminar)
+        private void EliminarLineaCSV(string filePath, string numeroAEliminar)
         {
             if (!File.Exists(filePath))
             {
