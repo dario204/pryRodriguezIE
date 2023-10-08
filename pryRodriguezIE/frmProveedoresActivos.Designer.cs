@@ -28,47 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.treeViewArchivos = new System.Windows.Forms.TreeView();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProveedoresActivos));
+            this.tvArchivos = new System.Windows.Forms.TreeView();
+            this.rtbContenido = new System.Windows.Forms.RichTextBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // treeViewArchivos
+            // tvArchivos
             // 
-            this.treeViewArchivos.Location = new System.Drawing.Point(83, 43);
-            this.treeViewArchivos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.treeViewArchivos.Name = "treeViewArchivos";
-            this.treeViewArchivos.Size = new System.Drawing.Size(356, 233);
-            this.treeViewArchivos.TabIndex = 0;
-            this.treeViewArchivos.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.tvArchivos.Location = new System.Drawing.Point(137, 73);
+            this.tvArchivos.Margin = new System.Windows.Forms.Padding(4);
+            this.tvArchivos.Name = "tvArchivos";
+            this.tvArchivos.Size = new System.Drawing.Size(369, 234);
+            this.tvArchivos.TabIndex = 0;
+            this.tvArchivos.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
-            // richTextBox1
+            // rtbContenido
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(83, 314);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(356, 215);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.rtbContenido.Location = new System.Drawing.Point(137, 342);
+            this.rtbContenido.Name = "rtbContenido";
+            this.rtbContenido.Size = new System.Drawing.Size(369, 215);
+            this.rtbContenido.TabIndex = 1;
+            this.rtbContenido.Text = "";
             // 
-            // frmCargaProveedorescs
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(130, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(376, 39);
+            this.lblTitulo.TabIndex = 2;
+            this.lblTitulo.Text = "Seleccione un Archivo";
+            // 
+            // frmProveedoresActivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(548, 547);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.treeViewArchivos);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "frmCargaProveedorescs";
+            this.ClientSize = new System.Drawing.Size(644, 569);
+            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.rtbContenido);
+            this.Controls.Add(this.tvArchivos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "frmProveedoresActivos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Carga de Proveedores";
             this.Load += new System.EventHandler(this.frmCargaProveedorescs_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TreeView treeViewArchivos;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TreeView tvArchivos;
+        private System.Windows.Forms.RichTextBox rtbContenido;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

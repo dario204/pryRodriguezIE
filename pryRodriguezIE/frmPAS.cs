@@ -30,7 +30,39 @@ namespace pryRodriguezIE
 
         private void dgvProveedores_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (e.RowIndex >= 0)
+            {
+                // Verifica que se haya seleccionado una fila válida en el DataGridView.
 
+                // Obtiene la fila de datos seleccionada.
+                DataGridViewRow selectedRow = dgvProveedores.Rows[e.RowIndex];
+
+                // Obtiene valores de las celdas de la fila seleccionada.
+                string numeroRegistro = selectedRow.Cells[0].Value.ToString();
+                string entidad = selectedRow.Cells[1].Value.ToString();
+                DateTime apertura = DateTime.Parse(selectedRow.Cells[2].Value.ToString());
+                string numExpediente = selectedRow.Cells[3].Value.ToString();
+                string juzgado = selectedRow.Cells[4].Value.ToString();
+                string jurisdiccion = selectedRow.Cells[5].Value.ToString();
+                string direccion = selectedRow.Cells[6].Value.ToString();
+                string responsable = selectedRow.Cells[7].Value.ToString();
+
+                // Asigna los valores a controles en la interfaz de usuario.
+                txtNumero.Text = numeroRegistro;
+                txtEntidad.Text = entidad;
+                dtpApertura.Value = apertura;
+                txtExpediente.Text = numExpediente;
+                cboJuzgado.Text = juzgado;
+                cboJurisdiccion.Text = jurisdiccion;
+                txtDireccion.Text = direccion;
+                cboLiquidador.Text = responsable;
+
+                // Configura algunos controles en la interfaz de usuario.
+                txtNumero.ReadOnly = true;
+                btnModificar.Enabled = true;
+                btnAgregar.Enabled = false;
+                btnEliminar.Enabled = true;
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

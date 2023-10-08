@@ -103,29 +103,37 @@ namespace pryRodriguezIE
 
         public void Modificar(int id, string entidad, string Apertura, string expendiente, string juzg, string juri, string direccion, string liquidador)
         {
+            // Establece el nombre del archivo CSV que se va a modificar
             string archivoProveedor = "Listado de aseguradores.csv";
 
             try
             {
+                // Crea una lista para almacenar las líneas modificadas y un indicador de primera línea
                 List<string> lineas = new List<string>();
                 bool primerLinea = true;
 
+                // Abre el archivo CSV
                 using (StreamReader lector = new StreamReader(archivoProveedor))
                 {
                     string readLine;
+                    // Lee cada línea del archivo CSV
                     while ((readLine = lector.ReadLine()) != null)
                     {
                         string[] separador = readLine.Split(';');
 
+                        // Verifica si la línea contiene al menos un campo y si el primer campo se puede convertir a un entero.
                         if (separador.Length > 0 && int.TryParse(separador[0], out int existingID))
                         {
+                            // Compara el ID de la línea actual con el ID proporcionado como argumento al método
                             if (existingID == id)
                             {
+                                // Crea una nueva línea con los valores actualizados y la agrega a la lista 
                                 string nuevaLinea = $"{id};{entidad};{Apertura};{expendiente};{juzg};{juri};{direccion};{liquidador}";
                                 lineas.Add(nuevaLinea);
                             }
                             else
                             {
+                                // Si el ID no coincide, agrega la línea original a la lista de líneas sin cambios.
                                 lineas.Add(readLine);
                             }
                         }
@@ -152,7 +160,7 @@ namespace pryRodriguezIE
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al modificar el archivo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al modificar el archivo: " + ex.Message + MessageBoxButtons.OK +MessageBoxIcon.Error);
             }
         }
         public void CargarGrilla(DataGridView grilla, ComboBox cboJuzgado, ComboBox cboJurisdiccion, ComboBox cboLiquidador)

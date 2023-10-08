@@ -22,7 +22,7 @@ namespace pryRodriguezIE
             String rootFolderPath = "Proveedores";
 
             // Llama a la función para llenar el TreeView.
-            PopulateTreeView(treeViewArchivos, rootFolderPath);
+            PopulateTreeView(tvArchivos, rootFolderPath);
         }
 
         private void frmCargaProveedorescs_Load(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace pryRodriguezIE
                         string fileContent = File.ReadAllText(filePath);
 
                         // Puedes mostrar el contenido en un control TextBox o RichTextBox, por ejemplo.
-                        richTextBox1.Text = fileContent;
+                        rtbContenido.Text = fileContent;
                     }
                     catch (IOException ex)
                     {
