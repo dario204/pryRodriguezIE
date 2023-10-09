@@ -190,7 +190,7 @@ namespace pryRodriguezIE
 
                         while (!sr.EndOfStream)
                         {
-                            readLine = sr.ReadLine();
+                            
                             separador = readLine.Split(';');
                             grilla.Rows.Add(separador);
 
@@ -198,6 +198,7 @@ namespace pryRodriguezIE
                             jurisdiccionesUnicas.Add(separador[5]);
                             responsablesUnicos.Add(separador[7]);
 
+                            readLine = sr.ReadLine();
                         }
 
                         //Carga de jurisdiccions unicas sin repetir
