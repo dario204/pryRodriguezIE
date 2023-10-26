@@ -41,6 +41,9 @@ namespace pryRodriguezIE
 
         private void btnInicioSesion_Click(object sender, EventArgs e)
         {
+            clsLogs ObjBd = new clsLogs();
+            ObjBd.RegistrarLogs();
+            
             StreamWriter sw = new StreamWriter("logInicio", true);
             sw.WriteLine(txtUsuario.Text + "-Fecha:" + DateTime.Now);
             sw.Close();
