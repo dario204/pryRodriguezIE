@@ -48,21 +48,23 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Gestion,
             this.listadoReportes});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(710, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(947, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // Gestion
             // 
             this.Gestion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Proveedor});
             this.Gestion.Name = "Gestion";
-            this.Gestion.Size = new System.Drawing.Size(59, 20);
+            this.Gestion.Size = new System.Drawing.Size(73, 24);
             this.Gestion.Text = "Gestion";
             // 
             // Proveedor
@@ -70,13 +72,13 @@
             this.Proveedor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.RegistroProveedores});
             this.Proveedor.Name = "Proveedor";
-            this.Proveedor.Size = new System.Drawing.Size(180, 22);
+            this.Proveedor.Size = new System.Drawing.Size(224, 26);
             this.Proveedor.Text = "Proveedor";
             // 
             // RegistroProveedores
             // 
             this.RegistroProveedores.Name = "RegistroProveedores";
-            this.RegistroProveedores.Size = new System.Drawing.Size(201, 22);
+            this.RegistroProveedores.Size = new System.Drawing.Size(254, 26);
             this.RegistroProveedores.Text = "Registro de Proveedores";
             this.RegistroProveedores.Click += new System.EventHandler(this.registroDeProveedoresToolStripMenuItem_Click);
             // 
@@ -85,7 +87,7 @@
             this.listadoReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Proveedores});
             this.listadoReportes.Name = "listadoReportes";
-            this.listadoReportes.Size = new System.Drawing.Size(108, 20);
+            this.listadoReportes.Size = new System.Drawing.Size(136, 24);
             this.listadoReportes.Text = "Listado/Reportes";
             // 
             // Proveedores
@@ -93,30 +95,33 @@
             this.Proveedores.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuActivos});
             this.Proveedores.Name = "Proveedores";
-            this.Proveedores.Size = new System.Drawing.Size(180, 22);
+            this.Proveedores.Size = new System.Drawing.Size(174, 26);
             this.Proveedores.Text = "Proveedores";
             // 
             // menuActivos
             // 
             this.menuActivos.Name = "menuActivos";
-            this.menuActivos.Size = new System.Drawing.Size(180, 22);
+            this.menuActivos.Size = new System.Drawing.Size(140, 26);
             this.menuActivos.Text = "Activos";
             this.menuActivos.Click += new System.EventHandler(this.activosToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Hora,
             this.lblUsuario});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 392);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 484);
             this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(19, 0, 1, 0);
             this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.statusStrip1.Size = new System.Drawing.Size(710, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(947, 26);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
@@ -124,14 +129,14 @@
             // Hora
             // 
             this.Hora.Name = "Hora";
-            this.Hora.Size = new System.Drawing.Size(33, 17);
+            this.Hora.Size = new System.Drawing.Size(42, 20);
             this.Hora.Text = "Hora";
             this.Hora.Click += new System.EventHandler(this.Hora_Click);
             // 
             // lblUsuario
             // 
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(47, 17);
+            this.lblUsuario.Size = new System.Drawing.Size(59, 20);
             this.lblUsuario.Text = "Usuario";
             // 
             // temporizador
@@ -142,15 +147,16 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::pryRodriguezIE.Properties.Resources.images;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(710, 414);
+            this.ClientSize = new System.Drawing.Size(947, 510);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistemas de Gestion de Ventas de Servicios de Seguro";

@@ -90,5 +90,13 @@ namespace pryRodriguezIE
                 writer.WriteLine($"{user} - Hora de ingreso: {Hora} - Ingreso: {menu}");
             }
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            StreamWriter AD = new StreamWriter("logInicio", false);
+
+            AD.WriteLine(lblUsuario.Text + "- Fecha -" + DateTime.Now + " - Accede:" + Gestion.Text + ", " + listadoReportes.Text);
+            AD.Close();
+        }
     }
 }

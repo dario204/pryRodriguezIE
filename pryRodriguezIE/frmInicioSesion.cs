@@ -51,6 +51,17 @@ namespace pryRodriguezIE
             this.Hide();
             frmMain Main = new frmMain();
             Main.ShowDialog();
+
+            clsLogs clsUsuarios = new clsLogs();
+
+            if (clsUsuarios.Validarusuarios(txtUsuario.Text, txtContraseña.Text))
+            {
+                this.Hide();
+                frmMain frminicio = new frmMain();
+                frminicio.lblUsuario.Text = txtUsuario.Text;
+                frminicio.Gestion.Enabled = false;
+                frminicio.ShowDialog();
+            }
         }
 
         private void frmInicioSesion_Load(object sender, EventArgs e)
