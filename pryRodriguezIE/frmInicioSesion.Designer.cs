@@ -35,6 +35,7 @@
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnInicioSesion = new System.Windows.Forms.Button();
+            this.btnNuevoUsuario = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -89,7 +90,7 @@
             // 
             this.btnInicioSesion.Enabled = false;
             this.btnInicioSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInicioSesion.Location = new System.Drawing.Point(107, 176);
+            this.btnInicioSesion.Location = new System.Drawing.Point(15, 165);
             this.btnInicioSesion.Name = "btnInicioSesion";
             this.btnInicioSesion.Size = new System.Drawing.Size(134, 32);
             this.btnInicioSesion.TabIndex = 5;
@@ -97,12 +98,24 @@
             this.btnInicioSesion.UseVisualStyleBackColor = true;
             this.btnInicioSesion.Click += new System.EventHandler(this.btnInicioSesion_Click);
             // 
+            // btnNuevoUsuario
+            // 
+            this.btnNuevoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoUsuario.Location = new System.Drawing.Point(187, 165);
+            this.btnNuevoUsuario.Name = "btnNuevoUsuario";
+            this.btnNuevoUsuario.Size = new System.Drawing.Size(134, 32);
+            this.btnNuevoUsuario.TabIndex = 6;
+            this.btnNuevoUsuario.Text = "Nuevo Usuario";
+            this.btnNuevoUsuario.UseVisualStyleBackColor = true;
+            this.btnNuevoUsuario.Click += new System.EventHandler(this.btnNuevoUsuario_Click);
+            // 
             // frmInicioSesion
             // 
             this.AcceptButton = this.btnInicioSesion;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 241);
+            this.ClientSize = new System.Drawing.Size(340, 234);
+            this.Controls.Add(this.btnNuevoUsuario);
             this.Controls.Add(this.btnInicioSesion);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.txtContraseña);
@@ -127,5 +140,6 @@
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnInicioSesion;
+        private System.Windows.Forms.Button btnNuevoUsuario;
     }
 }

@@ -18,7 +18,11 @@ namespace pryRodriguezIE
         OleDbDataReader Lector;
 
         public string estadoConexion;
-
+        public int Id { get; set; }
+        public string Usuario { get; set; }
+        public string Contrasena { get; set; }
+        public string NombreUsuario { get; set; }
+        public string Rol { get; set; }
         public clsLogs()
         {
             rutaArchivo = @"../../BD/BrokerSeguros.accdb";
@@ -84,29 +88,37 @@ namespace pryRodriguezIE
         //}
         //}
 
-        public void RegistrarLogs()
+        public void RegistrarLogs(string Usuario, string Contrasena, string Rol)
         {
-            try
+           
+
+            using (OleDbConnection conn = new OleDbConnection(CadenaConexion))
             {
-                Comando = new OleDbCommand();
-                Comando.Connection = Conexion;
+                conn.Open();
 
-                Comando.CommandType = System.Data.CommandType.Text;
-                Comando.CommandText = "INSERT INTO Logs" +
-                    "(Usario,FechaHora,Categoria,Descripcion)" +
-                    "VALUES ('Prueba', '10/10/2022', 'prueba','Descripcion')";
+                string sqlCheckUser = "SELECT Usuario FROM Usuarios WHERE Usuario = ?";
+                using (OleDbCommand cmdCheckUser = new OleDbCommand(sqlCheckUser, conn))
+                {
+                    cmdCheckUser.Parameters.AddWithValue("param1", Usuario);
+                    using (OleDbDataReader reader = cmdCheckUser.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            MessageBox.Show("Usuario Existente");
+                            return;
+                        }
+                    }
+                }
 
-                // Comando.Parameters.AddWithValue("@Usuario", usuario);
-                // Comando.Parameters.AddWithValue("@FechaHora", FechaHora);
-                // Comando.Parameters.AddWithValue("@Categoria", categoria);
-                // Comando.Parameters.AddWithValue("@Descripcion", descripcion);
+                string sqlInsertUser = "INSERT INTO Usuarios(Usuario, Contraseña, Rol) VALUES (?, ?, ?)";
+                using (OleDbCommand cmdInsertUser = new OleDbCommand(sqlInsertUser, conn))
+                {
+                    cmdInsertUser.Parameters.AddWithValue("param1", Usuario);
+                    cmdInsertUser.Parameters.AddWithValue("param2", Contrasena);
+                    cmdInsertUser.Parameters.AddWithValue("param3", Rol);
 
-
-                Comando.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                estadoConexion = ex.Message;
+                    cmdInsertUser.ExecuteNonQuery();
+                }
             }
         }
 
@@ -158,15 +170,48 @@ namespace pryRodriguezIE
                 }
             }
         }
-        Estos comentarios describen el propósito y el funcionamiento de cada línea del código en el método Validarusuarios.
+        public static clsLogs Login(string usuario, string contrasena)
+        {
+            string rutaArchivo = @"../../archivos/usuarios.accdb";
+            string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + rutaArchivo;
+            using (OleDbConnection conn = new OleDbConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "SELECT IdUsuario, Usuario, Contraseña, Rol FROM Usuarios WHERE Usuario = ? AND Contraseña = ?";
+                using (OleDbCommand cmd = new OleDbCommand(sql, conn))
+                {
+                    try
+                    {
+                        cmd.Parameters.AddWithValue("@p1", usuario);
+                        cmd.Parameters.AddWithValue("@p2", contrasena);
+                        using (OleDbDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                clsLogs currentUser = new clsLogs
+                                {
+                                    Id = reader.GetInt32(0),
+                                    Usuario = reader.GetString(1),
+                                    Contrasena = reader.GetString(2),
+                                    Rol = reader.GetString(3)
+                                };
+                                return currentUser;
+                            }
+                        }
+                    }
+                    catch (OleDbException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        throw;
+                    }
+                }
+            }
+            return null;
+        }
 
-
-
-
-        Is this conversation helpful so far?
 
 
 
 
     }
-    }
+}

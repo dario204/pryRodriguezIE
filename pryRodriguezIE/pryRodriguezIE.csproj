@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="clsLogs.cs" />
     <Compile Include="clsProveedor.cs" />
+    <Compile Include="frmNuevoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoUsuario.Designer.cs">
+      <DependentUpon>frmNuevoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmProveedoresActivos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmNuevoUsuario.resx">
+      <DependentUpon>frmNuevoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmProveedoresActivos.resx">
       <DependentUpon>frmProveedoresActivos.cs</DependentUpon>
     </EmbeddedResource>

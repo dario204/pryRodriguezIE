@@ -54,19 +54,25 @@ namespace pryRodriguezIE
 
             clsLogs clsUsuarios = new clsLogs();
 
-            if (clsUsuarios.Validarusuarios(txtUsuario.Text, txtContraseña.Text))
-            {
-                this.Hide();
-                frmMain frminicio = new frmMain();
-                frminicio.lblUsuario.Text = txtUsuario.Text;
-                frminicio.Gestion.Enabled = false;
-                frminicio.ShowDialog();
-            }
+           // if (clsUsuarios.Validarusuarios(txtUsuario.Text, txtContraseña.Text))
+            //{
+              //  this.Hide();
+              //  frmMain frminicio = new frmMain();
+                //frminicio.lblUsuario.Text = txtUsuario.Text;
+                //frminicio.Gestion.Enabled = false;
+              //  frminicio.ShowDialog();
+            //}
         }
 
         private void frmInicioSesion_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnNuevoUsuario_Click(object sender, EventArgs e)
+        {
+            frmNuevoUsuario Nuevo= new frmNuevoUsuario();
+                Nuevo.ShowDialog();
         }
     }
 }
