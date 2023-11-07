@@ -107,7 +107,7 @@ namespace pryRodriguezIE
                 {
                     // Se crea un objeto OleDbCommand para ejecutar la consulta SQL anterior.
 
-                    comandoUsuario.Parameters.AddWithValue("param1", Usuario);
+                    comandoUsuario.Parameters.AddWithValue("parametro1", Usuario);
                     // Se agrega el parámetro Usuario a la consulta SQL.
 
                     using (OleDbDataReader reader = comandoUsuario.ExecuteReader())
@@ -132,9 +132,9 @@ namespace pryRodriguezIE
                 {
                     // Se crea otro objeto OleDbCommand para ejecutar la consulta SQL de inserción.
 
-                    comandoUsuario.Parameters.AddWithValue("param1", Usuario);
-                    comandoUsuario.Parameters.AddWithValue("param2", Contrasena);
-                    comandoUsuario.Parameters.AddWithValue("param3", Rol);
+                    comandoUsuario.Parameters.AddWithValue("parametro1", Usuario);
+                    comandoUsuario.Parameters.AddWithValue("parametro2", Contrasena);
+                    comandoUsuario.Parameters.AddWithValue("parametro3", Rol);
                     // Se agregan los parámetros Usuario, Contrasena y Rol a la consulta SQL.
 
                     comandoUsuario.ExecuteNonQuery();
@@ -217,7 +217,7 @@ namespace pryRodriguezIE
             // Inicio de la función LogMenu, que se utiliza para registrar información de registro en una base de datos.
 
             // Usa parámetros en lugar de insertar valores directamente en la sentencia SQL
-            string Sentenciasql = "INSERT INTO Logs(IdUsuario, Fecha, Categoria) VALUES (?, ?, ?)";
+            string Sentenciasql = "INSERT INTO Logs(Id, Usuario, FechaHora, Categoria) VALUES (?, ?, ?, ?)";
             // Se define una consulta SQL que insertará un registro de registro en la tabla "Logs". Se utilizan marcadores de posición para parámetros.
 
             try
