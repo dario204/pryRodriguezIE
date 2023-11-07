@@ -11,18 +11,29 @@ using System.IO;
 
 namespace pryRodriguezIE
 {
-    public partial class frmMain : Form
+    internal partial class frmMain : Form
     {
-        public frmMain()
+       
+        public clsLogs Actual; 
+        public frmMain(clsLogs Actual)
         {
             InitializeComponent();
+            if (Actual != null)
+            {
+                this.Actual = Actual;
+            }
+            else
+            {
+                // Maneja el caso en el que usuarioActual sea null si es necesario
+            }
+
         }
 
-        
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
+   
+          private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+          {
 
-        }
+          }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
