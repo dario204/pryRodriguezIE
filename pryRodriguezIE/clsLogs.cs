@@ -89,10 +89,11 @@ namespace pryRodriguezIE
         //}
         //}
 
-        public void RegistrarLogs(string Usuario, string Contrasena, string Rol)
+        public void RegistrarLogs(string Usuario, string Contrasena)
         {
             // Inicio de la función RegistrarLogs, que registra usuarios en la base de datos.
-
+            string rutaArchivo = @"../../Base de Datos/BrokerSeguros.accdb";
+            string CadenaConexion = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source =" + rutaArchivo;
             using (OleDbConnection conexion = new OleDbConnection(CadenaConexion))
             {
                 // Se crea una conexión a la base de datos utilizando OleDbConnection y se asegura de que se cierre automáticamente al salir del bloque.
@@ -125,7 +126,7 @@ namespace pryRodriguezIE
                     }
                 }
 
-                string sqlInsertarUsuario = "INSERT INTO Usuario(Usuario, Contraseña, Rol) VALUES (?, ?, ?)";
+                string sqlInsertarUsuario = "INSERT INTO Usuario(Usuario, Contraseña, Rol) VALUES (@parametro1,@parametro2)";
                 // Se define una nueva consulta SQL para insertar un nuevo usuario en la base de datos.
 
                 using (OleDbCommand comandoUsuario = new OleDbCommand(sqlInsertarUsuario, conexion))
@@ -134,7 +135,7 @@ namespace pryRodriguezIE
 
                     comandoUsuario.Parameters.AddWithValue("parametro1", Usuario);
                     comandoUsuario.Parameters.AddWithValue("parametro2", Contrasena);
-                    comandoUsuario.Parameters.AddWithValue("parametro3", Rol);
+                    
                     // Se agregan los parámetros Usuario, Contrasena y Rol a la consulta SQL.
 
                     comandoUsuario.ExecuteNonQuery();
@@ -185,7 +186,7 @@ namespace pryRodriguezIE
                                     Id = reader.GetInt32(0),
                                     Usuario = reader.GetString(1),
                                     Contraseña = reader.GetString(2),
-                                    Rol = reader.GetString(3)
+                                    
                                 };
                                 // Se crea un objeto clsLogs con los datos del usuario autenticado.
 

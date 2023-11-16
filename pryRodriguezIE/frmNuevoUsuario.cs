@@ -117,5 +117,16 @@ namespace pryRodriguezIE
                 txtContraseña.Enabled = false;
             }
         }
+
+        private void frmNuevoUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            frmInicioSesion frm = new frmInicioSesion();
+            frm.ShowDialog();
+        }
     }
 }
