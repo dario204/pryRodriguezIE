@@ -89,7 +89,7 @@ namespace pryRodriguezIE
         //}
         //}
 
-        public void RegistrarLogs(string Usuario, string Contrasena)
+        public void RegistrarLogs(string Usuario, string Contrasena, string Rol)
         {
             // Inicio de la función RegistrarLogs, que registra usuarios en la base de datos.
             string rutaArchivo = @"../../Base de Datos/BrokerSeguros.accdb";
@@ -126,16 +126,16 @@ namespace pryRodriguezIE
                     }
                 }
 
-                string sqlInsertarUsuario = "INSERT INTO Usuario(Usuario, Contraseña, Rol) VALUES (@parametro1,@parametro2)";
+                string sqlInsertarUsuario = "INSERT INTO Usuario(Usuario, Contraseña) VALUES (@parametro1,@parametro2)";
                 // Se define una nueva consulta SQL para insertar un nuevo usuario en la base de datos.
 
                 using (OleDbCommand comandoUsuario = new OleDbCommand(sqlInsertarUsuario, conexion))
                 {
                     // Se crea otro objeto OleDbCommand para ejecutar la consulta SQL de inserción.
 
-                    comandoUsuario.Parameters.AddWithValue("parametro1", Usuario);
-                    comandoUsuario.Parameters.AddWithValue("parametro2", Contrasena);
-                    
+                    comandoUsuario.Parameters.AddWithValue("@parametro1", Usuario);
+                    comandoUsuario.Parameters.AddWithValue("@parametro2", Contrasena);
+                    comandoUsuario.Parameters.AddWithValue("@parametro3", Rol);
                     // Se agregan los parámetros Usuario, Contrasena y Rol a la consulta SQL.
 
                     comandoUsuario.ExecuteNonQuery();
