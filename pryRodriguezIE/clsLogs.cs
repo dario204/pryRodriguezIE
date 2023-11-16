@@ -141,7 +141,7 @@ namespace pryRodriguezIE
                     comandoUsuario.ExecuteNonQuery();
                     // Se ejecuta la consulta SQL de inserción para registrar el nuevo usuario en la base de datos.
                 }
-            }
+            }//
 
 
         }
