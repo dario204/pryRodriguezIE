@@ -41,15 +41,12 @@ namespace pryRodriguezIE
 
         private void btnInicioSesion_Click(object sender, EventArgs e)
         {
-
             string usuario = txtUsuario.Text;
             string contraseña = txtContraseña.Text;
             // Se obtienen el nombre de usuario y la contraseña de los campos de entrada en el formulario.
 
             clsLogs objUsuario = clsLogs.Login(usuario, contraseña);
             // Se crea una instancia de la clase clsLogs y se llama al método Login para intentar autenticar al usuario.
-
-            // Se crea una instancia del formulario frmMain y se muestra en modo de diálogo.
 
             if (objUsuario != null)
             {
@@ -85,45 +82,47 @@ namespace pryRodriguezIE
                     btnInicioSesion.Enabled = false;
                     // Se deshabilitan los campos de entrada y el botón de inicio de sesión.
 
-                   Timer.Tick += contador_Tick;
-                   Timer.Start();
-                   // Se inicia un temporizador para controlar el tiempo de espera antes de que los campos se habiliten nuevamente.
-                }
-            }
+                    Timer.Tick += contador_Tick;
+                    Timer.Start();
 
-            // if (clsUsuarios.Validarusuarios(txtUsuario.Text, txtContraseña.Text))
-            //{
-            //  this.Hide();
-            //  frmMain frminicio = new frmMain();
-            //frminicio.lblUsuario.Text = txtUsuario.Text;
-            //frminicio.Gestion.Enabled = false;
-            //  frminicio.ShowDialog();
-            //}
+
+
+                    // if (clsUsuarios.Validarusuarios(txtUsuario.Text, txtContraseña.Text))
+                    //{
+                    //  this.Hide();
+                    //  frmMain frminicio = new frmMain();
+                    //frminicio.lblUsuario.Text = txtUsuario.Text;
+                    //frminicio.Gestion.Enabled = false;
+                    //  frminicio.ShowDialog();
+                    //}
+                }
+
+               
+
+            }
+        }
+        private void frmInicioSesion_Load(object sender, EventArgs e)
+        {
+
         }
 
-            private void frmInicioSesion_Load(object sender, EventArgs e)
-            {
-
-            }
-
-            private void btnNuevoUsuario_Click(object sender, EventArgs e)
-            {
-                frmNuevoUsuario Nuevo = new frmNuevoUsuario();
-                Nuevo.ShowDialog();
-                this.Hide();
-            }
-            private void contador_Tick(object sender, EventArgs e)
-            {
-                // Habilitar el botón y detener el temporizador.
-                intentos = 0;
-                txtUsuario.Enabled = true;
-                txtContraseña.Enabled = true;
-                btnInicioSesion.Enabled = true;
-                Timer.Stop();
-            }
-        
-    }
-    
+        private void btnNuevoUsuario_Click(object sender, EventArgs e)
+        {
+            frmNuevoUsuario Nuevo = new frmNuevoUsuario();
+            Nuevo.ShowDialog();
+            this.Hide();
+        }
+        private void contador_Tick(object sender, EventArgs e)
+        {
+            // Habilitar el botón y detener el temporizador.
+            intentos = 0;
+            txtUsuario.Enabled = true;
+            txtContraseña.Enabled = true;
+            btnInicioSesion.Enabled = true;
+            Timer.Stop();
+        }
+    } 
 }
+
 
 

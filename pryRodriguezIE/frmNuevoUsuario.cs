@@ -65,22 +65,23 @@ namespace pryRodriguezIE
             objUsuario.RegistrarLogs(NuevoUsuario, NuevaContraseña, Rol);
                 frmInicioSesion Inicio = new frmInicioSesion();
                 Inicio.ShowDialog();
-                this.Hide();
+
+            this.Hide();
             
 
 
         }
-        private byte[] ConvertPictureBoxToBytes(PictureBox pictureBox)
-        {
-            using (MemoryStream memoryStream = new MemoryStream())
-            {
+        //private byte[] ConvertPictureBoxToBytes(PictureBox pictureBox)
+        //{
+          //  using (MemoryStream memoryStream = new MemoryStream())
+           // {
                 // Convierte la imagen en el PictureBox en un formato de imagen
-                pictureBox.Image.Save(memoryStream, ImageFormat.Png);
+             //   pictureBox.Image.Save(memoryStream, ImageFormat.Png);
 
                 // Obtiene los bytes de la imagen
-                return memoryStream.ToArray();
-            }
-        }
+               // return memoryStream.ToArray();
+            //}
+        //}
 
         private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
