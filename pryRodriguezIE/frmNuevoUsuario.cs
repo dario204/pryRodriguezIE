@@ -11,11 +11,15 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Data.OleDb;
+using System.Reflection;
 
 namespace pryRodriguezIE
 {
     public partial class frmNuevoUsuario : Form
     {
+        private List<Point> Punto = new List<Point>();
+        private bool Dibuja = false;
+        clsLogs objBD = new clsLogs();
         public frmNuevoUsuario()
         {
             InitializeComponent();
@@ -54,20 +58,14 @@ namespace pryRodriguezIE
             //}
             //}
             //}
-           
             
-            
-                string NuevoUsuario = txtUsuario.Text;
-                string NuevaContraseña = txtContraseña.Text;
-                string Rol = cboRol.Text;
-
-                clsLogs objUsuario = new clsLogs();
-            objUsuario.RegistrarLogs(NuevoUsuario, NuevaContraseña, Rol);
-                frmInicioSesion Inicio = new frmInicioSesion();
-                Inicio.ShowDialog();
-
+            string Usuario = txtUsuario.Text;
+            string Contraseña = txtContraseña.Text;
+            string rol = cboRol.Text;
+            objBD.CargarUsuario(Usuario, Contraseña, rol, ObtenerFirma());
+            MessageBox.Show("Registro exisitoso" + MessageBoxButtons.OK);
             this.Hide();
-            
+
 
 
         }
@@ -128,6 +126,63 @@ namespace pryRodriguezIE
         {
             frmInicioSesion frm = new frmInicioSesion();
             frm.ShowDialog();
+        }
+        private byte[] ObtenerFirma()
+        {   // Se crea un nuevo objeto Bitmap con las dimensiones del control pbFirma.
+            Bitmap FirmaBitmap = new Bitmap(pbFirma.Width, pbFirma.Height);
+
+            // Se utiliza un objeto Graphics para dibujar en la imagen signatureBitmap.
+            using (Graphics Grafico = Graphics.FromImage(FirmaBitmap))
+            {
+                // Se limpia el fondo de la imagen con color blanco.
+                Grafico.Clear(Color.White);
+
+                // Se verifica si hay más de un punto en la colección Punto.
+                // Si es así, se dibuja una curva con un objeto Pen de color negro y grosor 2.
+                if (Punto.Count > 1)
+                {
+                    using (Pen Lapiz = new Pen(Color.Black, 2))
+                    {
+                        g.DrawCurve(Lapiz, Punto.ToArray());
+                    }
+                }
+            }
+
+            using (MemoryStream stream = new MemoryStream())
+            {
+                FirmaBitmap.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                return stream.ToArray();
+            }
+        }
+        private void pbFirma_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (Dibuja)
+            {
+                Punto.Add(e.Location);
+                pbFirma.Invalidate(); // Redibujar el PictureBox
+            }
+        }
+
+        private void pbFirma_MouseDown(object sender, MouseEventArgs e)
+        {
+            Dibuja = true;
+            Punto.Add(e.Location);
+        }
+
+        private void pbFirma_MouseUp(object sender, MouseEventArgs e)
+        {
+            Dibuja = false;
+        }
+
+        private void pbFirma_Paint(object sender, PaintEventArgs e)
+        {
+            if (Punto.Count > 1)
+            {
+                using (Pen Lapiz = new Pen(Color.Black, 2))
+                {
+                    e.Graphics.DrawCurve(Lapiz, Punto.ToArray());
+                }
+            }
         }
     }
 }

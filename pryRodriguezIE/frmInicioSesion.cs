@@ -43,9 +43,11 @@ namespace pryRodriguezIE
         {
             string usuario = txtUsuario.Text;
             string contraseña = txtContraseña.Text;
+
             // Se obtienen el nombre de usuario y la contraseña de los campos de entrada en el formulario.
 
             clsLogs objUsuario = clsLogs.Login(usuario, contraseña);
+            clsLogs Log = new clsLogs();
             // Se crea una instancia de la clase clsLogs y se llama al método Login para intentar autenticar al usuario.
 
             if (objUsuario != null)
@@ -53,11 +55,17 @@ namespace pryRodriguezIE
                 // Si el objeto de usuario no es nulo, significa que la autenticación fue exitosa.
                 clsLogs.RegistrarLog(usuario);
                 // Se registra un log de inicio de sesión.
+
+                // Agregar el siguiente bloque para llamar al método RegistrarLog:
+                string fechaHora = DateTime.Now.ToString();  // Obtener la fecha y hora actual
+                string categoria = "Inicio de sesión";  // Especificar la categoría según sea necesario
+                Log.RegistrarLog(fechaHora, usuario, categoria);
+
                 this.Hide();
                 // Se oculta el formulario actual.
-                frmMain forMain = new frmMain(objUsuario);
+                frmMain Main = new frmMain(objUsuario);
                 // Se crea una nueva instancia del formulario frmMain pasando el objeto de usuario autenticado.
-                forMain.ShowDialog();
+                Main.ShowDialog();
                 // Se muestra el formulario frmMain en modo de diálogo.
             }
             else
@@ -84,23 +92,11 @@ namespace pryRodriguezIE
 
                     Timer.Tick += contador_Tick;
                     Timer.Start();
-
-
-
-                    // if (clsUsuarios.Validarusuarios(txtUsuario.Text, txtContraseña.Text))
-                    //{
-                    //  this.Hide();
-                    //  frmMain frminicio = new frmMain();
-                    //frminicio.lblUsuario.Text = txtUsuario.Text;
-                    //frminicio.Gestion.Enabled = false;
-                    //  frminicio.ShowDialog();
-                    //}
                 }
-
-               
-
             }
+           
         }
+
         private void frmInicioSesion_Load(object sender, EventArgs e)
         {
 

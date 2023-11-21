@@ -54,42 +54,9 @@ namespace pryRodriguezIE
 
             }
         }
-        //class EntradaLog
-        //{
-        //  public string Usuario { get; set; }
-        //  public string Contraseña { get; set; }
-        //}
+       
 
-        //class InsertarBD
-        //{
-        //  public void Main(string[] args)
-        // {
-        //   string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Ruta\TuBaseDeDatos.accdb";
-        // using (OleDbConnection connection = new OleDbConnection(connectionString))
-        //{
-        //   connection.Open();
-
-        // Supongamos que tienes un objeto LogEntry con información de usuario y contraseña.
-        //  EntradaLog logEntry = new EntradaLog
-        // {
-        //    Usuario = "NombreUsuario",
-        //    Contraseña = "ContraseñaSegura"
-        //};
-
-        // string insertQuery = "INSERT INTO Usuario (Usuario, Contraseña) VALUES (?, ?)";
-        //using (OleDbCommand command = new OleDbCommand(insertQuery, connection))
-        //{
-        //   command.Parameters.AddWithValue("@usuario", logEntry.Usuario);
-        //   command.Parameters.AddWithValue("@contraseña", logEntry.Contraseña);
-        //   command.ExecuteNonQuery();
-        //}
-
-        //connection.Close();
-        // }
-        //}
-        //}
-
-        public void RegistrarLogs(string Usuario, string Contrasena, string Rol)
+        public void RegistrarUsuario(string Usuario, string Contrasena, string Rol)
         {
             // Inicio de la función RegistrarLogs, que registra usuarios en la base de datos.
             string rutaArchivo = @"../../Base de Datos/BrokerSeguros.accdb";
@@ -126,7 +93,7 @@ namespace pryRodriguezIE
                     }
                 }
 
-                string sqlInsertarUsuario = "INSERT INTO Usuario(Usuario, Contraseña) VALUES (@parametro1,@parametro2)";
+                string sqlInsertarUsuario = "INSERT INTO Usuario(Usuario, Contraseña, Rol) VALUES (@parametro1,@parametro2, @parametro3)";
                 // Se define una nueva consulta SQL para insertar un nuevo usuario en la base de datos.
 
                 using (OleDbCommand comandoUsuario = new OleDbCommand(sqlInsertarUsuario, conexion))
@@ -171,6 +138,7 @@ namespace pryRodriguezIE
                     {
                         comando.Parameters.AddWithValue("@p1", usuario);
                         comando.Parameters.AddWithValue("@p2", contraseña);
+                        
                         // Se agregan los parámetros para el nombre de usuario y la contraseña a la consulta SQL.
 
                         using (OleDbDataReader reader = comando.ExecuteReader())
@@ -213,44 +181,51 @@ namespace pryRodriguezIE
             sw.Close();
         }
 
-        public void LogMenu(int idUsuario, DateTime fecha, string categoria)
+        public void RegistrarLog( string Usuario,string Fecha, string categoria)
         {
-            // Inicio de la función LogMenu, que se utiliza para registrar información de registro en una base de datos.
-
-            // Usa parámetros en lugar de insertar valores directamente en la sentencia SQL
-            string Sentenciasql = "INSERT INTO Logs(Id, Usuario, FechaHora, Categoria) VALUES (?, ?, ?, ?)";
-            // Se define una consulta SQL que insertará un registro de registro en la tabla "Logs". Se utilizan marcadores de posición para parámetros.
-
             try
             {
-                using (OleDbConnection conexion = new OleDbConnection(CadenaConexion))
-                {
-                    // Se crea una conexión a la base de datos utilizando OleDbConnection.
-
-                    conexion.Open();
-                    // Se abre la conexión a la base de datos.
-
-                    using (OleDbCommand comando = new OleDbCommand(Sentenciasql, conexion))
-                    {
-                        // Se crea un objeto OleDbCommand para ejecutar la consulta SQL.
-
-                        comando.Parameters.AddWithValue("param1", idUsuario);
-                        comando.Parameters.AddWithValue("param2", fecha);
-                        comando.Parameters.AddWithValue("param3", categoria);
-                        // Se agregan parámetros para reemplazar los marcadores de posición en la consulta SQL.
-
-                        comando.ExecuteNonQuery();
-                        // Se ejecuta la consulta SQL para insertar el registro en la tabla "Logs".
-                    }
-                }
+                OleDbConnection Conexion = new OleDbConnection(CadenaConexion);
+                Conexion.Open();
+                Comando = new OleDbCommand();
+                Comando.Connection = Conexion;
+                Comando.CommandType = System.Data.CommandType.Text;
+                Comando.CommandText = "INSERT INTO Logs ([Usuario],FechaHora, Categoria) VALUES (@Usuario,@fecha, @categoria)";
+                Comando.Parameters.AddWithValue("@Usuario", Usuario);
+                Comando.Parameters.AddWithValue("@fecha", Fecha);
+                Comando.Parameters.AddWithValue("@categoria", categoria);
+                Comando.ExecuteNonQuery();
+                Conexion.Close();
             }
             catch (Exception ex)
             {
-                // En caso de que se produzca una excepción, se captura y se muestra un mensaje de error en una ventana emergente.
                 MessageBox.Show(ex.Message);
+                
             }
         }
 
+        public void CargarUsuario(string Usuario, string Contraseña, string rol, byte[] imagen)
+        {
+            try
+            {
+                Conexion = new OleDbConnection(CadenaConexion);
+                Comando = new OleDbCommand();
+                Comando.Connection = Conexion;
+                Conexion.Open();
+                Comando.CommandType = System.Data.CommandType.Text;
+                Comando.CommandText = "INSERT INTO Usuario ([Usuario], [Contraseña], Rol, Firma) VALUES (@Usuario, @Contraseña, @rol, @firma)";
+                Comando.Parameters.AddWithValue("@Usuario", Usuario);
+                Comando.Parameters.AddWithValue("@Contraseña", Contraseña);
+                Comando.Parameters.AddWithValue("@rol", rol);
+                Comando.Parameters.Add("@firma", OleDbType.VarBinary).Value = imagen; ;
+                Comando.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
     }
 }
