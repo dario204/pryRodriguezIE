@@ -17,7 +17,10 @@ namespace pryRodriguezIE
 {
     public partial class frmNuevoUsuario : Form
     {
+        // Se declara una lista de puntos para almacenar las coordenadas de la firma.
         private List<Point> Punto = new List<Point>();
+
+        //Indica si se esta dibujando
         private bool Dibuja = false;
         clsLogs objBD = new clsLogs();
         public frmNuevoUsuario()
@@ -63,8 +66,10 @@ namespace pryRodriguezIE
             string Contraseña = txtContraseña.Text;
             string rol = cboRol.Text;
             objBD.CargarUsuario(Usuario, Contraseña, rol, ObtenerFirma());
-            MessageBox.Show("Registro exisitoso" + MessageBoxButtons.OK);
+            MessageBox.Show("Registro exisitoso" ,"", MessageBoxButtons.OK);
             this.Hide();
+            frmInicioSesion Inicio = new frmInicioSesion();
+            Inicio.ShowDialog();
 
 
 
@@ -138,28 +143,30 @@ namespace pryRodriguezIE
                 Grafico.Clear(Color.White);
 
                 // Se verifica si hay más de un punto en la colección Punto.
-                // Si es así, se dibuja una curva con un objeto Pen de color negro y grosor 2.
                 if (Punto.Count > 1)
                 {
                     using (Pen Lapiz = new Pen(Color.Black, 2))
                     {
-                        g.DrawCurve(Lapiz, Punto.ToArray());
+                        Grafico.DrawCurve(Lapiz, Punto.ToArray());
                     }
                 }
             }
-
-            using (MemoryStream stream = new MemoryStream())
+            // Se utiliza un MemoryStream para almacenar la representación binaria de la firma en formato PNG.
+            using (MemoryStream Memoria = new MemoryStream())
             {
-                FirmaBitmap.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
-                return stream.ToArray();
+                //Se guarda la imagen de la firma en el MemoryStream
+                FirmaBitmap.Save(Memoria, System.Drawing.Imaging.ImageFormat.Png);
+                //Devuelve la imagen en bytes
+                return Memoria.ToArray();
             }
         }
         private void pbFirma_MouseMove(object sender, MouseEventArgs e)
         {
+            //Verifica si se esta dibujando
             if (Dibuja)
             {
                 Punto.Add(e.Location);
-                pbFirma.Invalidate(); // Redibujar el PictureBox
+                pbFirma.Invalidate(); // Redibuja el PictureBox
             }
         }
 

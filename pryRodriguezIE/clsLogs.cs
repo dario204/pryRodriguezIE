@@ -190,7 +190,11 @@ namespace pryRodriguezIE
                 Comando = new OleDbCommand();
                 Comando.Connection = Conexion;
                 Comando.CommandType = System.Data.CommandType.Text;
+               
+                //comando SQL para insertar un nuevo registro
                 Comando.CommandText = "INSERT INTO Logs ([Usuario],FechaHora, Categoria) VALUES (@Usuario,@fecha, @categoria)";
+
+                // Se agregan parámetros al comando
                 Comando.Parameters.AddWithValue("@Usuario", Usuario);
                 Comando.Parameters.AddWithValue("@fecha", Fecha);
                 Comando.Parameters.AddWithValue("@categoria", categoria);
@@ -212,6 +216,8 @@ namespace pryRodriguezIE
                 Comando = new OleDbCommand();
                 Comando.Connection = Conexion;
                 Conexion.Open();
+
+               //comando SQL para insertar un nuevo usuario en la tabla "Usuario".
                 Comando.CommandType = System.Data.CommandType.Text;
                 Comando.CommandText = "INSERT INTO Usuario ([Usuario], [Contraseña], Rol, Firma) VALUES (@Usuario, @Contraseña, @rol, @firma)";
                 Comando.Parameters.AddWithValue("@Usuario", Usuario);
